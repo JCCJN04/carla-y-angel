@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Great_Vibes, Cormorant_Garamond, Montserrat } from "next/font/google";
+import BackgroundImage from "@/components/BackgroundImage";
 import "./globals.css";
 
 const greatVibes = Great_Vibes({
@@ -39,7 +40,10 @@ export default function RootLayout({
       <body
         className={`${greatVibes.variable} ${cormorant.variable} ${montserrat.variable}`}
       >
-        {children}
+        <BackgroundImage />
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          {children}
+        </div>
       </body>
     </html>
   );

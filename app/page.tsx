@@ -1,6 +1,8 @@
 import { Suspense } from "react";
 import CountdownTimer from "@/components/CountdownTimer";
 import GSAPAnimations from "@/components/GSAPAnimations";
+import TallyEmbed from "@/components/TallyEmbed";
+import WeatherSection from "@/components/WeatherSection";
 
 export default function Home() {
   return (
@@ -9,7 +11,9 @@ export default function Home() {
 
       {/* ══ HERO ══════════════════════════════════════════════════════ */}
       <header className="hero" role="banner">
-        <div className="hero-blob" aria-hidden="true" />
+        <div className="hero-blob-wrap" aria-hidden="true">
+          <div className="hero-blob" />
+        </div>
 
         <div className="hero-inner">
           <p className="hero-pre" aria-label="Nos casamos">
@@ -46,26 +50,6 @@ export default function Home() {
             27 · XI · 2026
           </p>
 
-          <div className="hero-cta-wrap">
-            <a
-              href="#programa"
-              className="hero-cta"
-              aria-label="Ver detalles del evento"
-            >
-              Ver detalles
-              <svg
-                viewBox="0 0 10 10"
-                aria-hidden="true"
-                strokeWidth="1.5"
-              >
-                <path
-                  d="M5 1v8M1 5l4 4 4-4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
-          </div>
         </div>
 
         <div className="hero-connector" aria-hidden="true" />
@@ -98,27 +82,59 @@ export default function Home() {
         role="region"
         aria-label="Cuenta regresiva"
       >
-        <p className="section-label">Faltan</p>
-        <Suspense
-          fallback={
-            <div className="countdown-grid">
-              {["Días", "Horas", "Min", "Seg"].map((l) => (
-                <div key={l} className="countdown-item">
-                  <div className="countdown-card-l1">
-                    <div className="countdown-card-l2">
-                      <div className="countdown-card-l3">
-                        <span className="countdown-num">—</span>
-                        <span className="countdown-label">{l}</span>
-                      </div>
+        {/* Decorative corner ornaments */}
+        <svg aria-hidden="true" className="band-ornament band-ornament--tl" viewBox="0 0 120 120" fill="none">
+          <path d="M10 10 Q60 10 60 60" stroke="rgba(196,160,90,0.35)" strokeWidth="0.8"/>
+          <path d="M10 10 Q10 60 60 60" stroke="rgba(196,160,90,0.35)" strokeWidth="0.8"/>
+          <circle cx="10" cy="10" r="3" fill="rgba(196,160,90,0.4)"/>
+          <circle cx="60" cy="60" r="2" fill="rgba(196,160,90,0.25)"/>
+          <path d="M25 10 Q25 25 10 25" stroke="rgba(196,160,90,0.2)" strokeWidth="0.6"/>
+          <path d="M10 40 Q40 40 40 10" stroke="rgba(196,160,90,0.15)" strokeWidth="0.5"/>
+        </svg>
+        <svg aria-hidden="true" className="band-ornament band-ornament--tr" viewBox="0 0 120 120" fill="none">
+          <path d="M110 10 Q60 10 60 60" stroke="rgba(196,160,90,0.35)" strokeWidth="0.8"/>
+          <path d="M110 10 Q110 60 60 60" stroke="rgba(196,160,90,0.35)" strokeWidth="0.8"/>
+          <circle cx="110" cy="10" r="3" fill="rgba(196,160,90,0.4)"/>
+          <circle cx="60" cy="60" r="2" fill="rgba(196,160,90,0.25)"/>
+          <path d="M95 10 Q95 25 110 25" stroke="rgba(196,160,90,0.2)" strokeWidth="0.6"/>
+          <path d="M110 40 Q80 40 80 10" stroke="rgba(196,160,90,0.15)" strokeWidth="0.5"/>
+        </svg>
+        <svg aria-hidden="true" className="band-ornament band-ornament--bl" viewBox="0 0 120 120" fill="none">
+          <path d="M10 110 Q60 110 60 60" stroke="rgba(196,160,90,0.35)" strokeWidth="0.8"/>
+          <path d="M10 110 Q10 60 60 60" stroke="rgba(196,160,90,0.35)" strokeWidth="0.8"/>
+          <circle cx="10" cy="110" r="3" fill="rgba(196,160,90,0.4)"/>
+          <circle cx="60" cy="60" r="2" fill="rgba(196,160,90,0.25)"/>
+        </svg>
+        <svg aria-hidden="true" className="band-ornament band-ornament--br" viewBox="0 0 120 120" fill="none">
+          <path d="M110 110 Q60 110 60 60" stroke="rgba(196,160,90,0.35)" strokeWidth="0.8"/>
+          <path d="M110 110 Q110 60 60 60" stroke="rgba(196,160,90,0.35)" strokeWidth="0.8"/>
+          <circle cx="110" cy="110" r="3" fill="rgba(196,160,90,0.4)"/>
+          <circle cx="60" cy="60" r="2" fill="rgba(196,160,90,0.25)"/>
+        </svg>
+
+        {/* Top & bottom edge lines */}
+        <div className="band-edge band-edge--top" aria-hidden="true" />
+        <div className="band-edge band-edge--bottom" aria-hidden="true" />
+
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <span className="band-script">Cuenta regresiva</span>
+          <Suspense
+            fallback={
+              <div className="countdown-grid">
+                {["Días", "Horas", "Minutos", "Segundos"].map((l) => (
+                  <div key={l} className="countdown-item">
+                    <div className="countdown-circle">
+                      <span className="countdown-num">—</span>
                     </div>
+                    <span className="countdown-label">{l}</span>
                   </div>
-                </div>
-              ))}
-            </div>
-          }
-        >
-          <CountdownTimer />
-        </Suspense>
+                ))}
+              </div>
+            }
+          >
+            <CountdownTimer />
+          </Suspense>
+        </div>
       </div>
 
       {/* ══ PROGRAMA ══════════════════════════════════════════════════ */}
@@ -182,47 +198,33 @@ export default function Home() {
         </h2>
 
         <div className="venue-grid">
+          {/* ── Iglesia ── */}
           <article className="venue-card-l1 reveal-left">
             <div className="venue-card-l2">
               <div className="venue-card-l3">
-                <div className="venue-card">
-                  <div className="venue-card-inner">
-                    <div className="venue-icon" aria-hidden="true">
-                      <svg
-                        viewBox="0 0 24 24"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M12 2v4M10 4h4" />
-                        <path d="M5 10h14v11H5z" />
-                        <path d="M9 21v-6h6v6" />
-                        <path d="M12 6l-7 4M12 6l7 4" />
-                      </svg>
-                    </div>
-                    <h3 className="venue-card-name">
-                      Iglesia San José Mirador
-                    </h3>
-                    <div className="venue-card-addr">
-                      Misa · 16:00 hrs
-                      <br />
-                      Monterrey, N.L.
-                    </div>
+                <div className="venue-card venue-card--map">
+                  <div className="venue-map-top">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/carlayangel/iglesia.png"
+                      alt="Iglesia San José Mirador"
+                      style={{ width: '100%', height: 210, objectFit: 'cover', display: 'block' }}
+                    />
+                  </div>
+                  <div className="venue-card-inner venue-card-body">
+                    <p className="venue-event-label">Ceremonia Religiosa</p>
+                    <p className="venue-card-time">16:00 hrs</p>
+                    <h3 className="venue-card-name">Iglesia San José Mirador</h3>
+                    <div className="venue-card-addr">Chiapas</div>
+                    <div className="venue-card-divider" aria-hidden="true" />
                     <a
-                      href="https://maps.google.com/?q=Iglesia+San+Jose+Mirador+Monterrey"
+                      href="https://maps.google.com/?q=Iglesia+San+Jose+Mirador+Chiapas"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="venue-link"
+                      className="venue-link venue-link--block"
                       aria-label="Ver Iglesia San José Mirador en Google Maps"
                     >
-                      Ver en mapa
-                      <svg
-                        viewBox="0 0 8 8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="1.5"
-                      >
-                        <path d="M1 7L7 1M2 1h5v5" />
-                      </svg>
+                      Ver ubicación
                     </a>
                   </div>
                 </div>
@@ -230,44 +232,33 @@ export default function Home() {
             </div>
           </article>
 
+          {/* ── Salón ── */}
           <article className="venue-card-l1 reveal-right">
             <div className="venue-card-l2">
               <div className="venue-card-l3">
-                <div className="venue-card">
-                  <div className="venue-card-inner">
-                    <div className="venue-icon" aria-hidden="true">
-                      <svg
-                        viewBox="0 0 24 24"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M8 2l4 8 4-8" />
-                        <path d="M6.8 10h10.4l-1.2 8H8z" />
-                        <path d="M9 18v3M15 18v3M7 21h10" />
-                      </svg>
-                    </div>
+                <div className="venue-card venue-card--map">
+                  <div className="venue-map-top">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/carlayangel/salon.png"
+                      alt="Salón Glück"
+                      style={{ width: '100%', height: 210, objectFit: 'cover', display: 'block' }}
+                    />
+                  </div>
+                  <div className="venue-card-inner venue-card-body">
+                    <p className="venue-event-label">Ceremonia Civil y Recepción</p>
+                    <p className="venue-card-time">18:00 hrs</p>
                     <h3 className="venue-card-name">Salón Glück</h3>
-                    <div className="venue-card-addr">
-                      Recepción · 18:00 hrs
-                      <br />
-                      Monterrey, N.L.
-                    </div>
+                    <div className="venue-card-addr">Chiapas</div>
+                    <div className="venue-card-divider" aria-hidden="true" />
                     <a
-                      href="https://maps.google.com/?q=Salon+Gluck+Monterrey"
+                      href="https://maps.google.com/?q=Salon+Gluck+Chiapas"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="venue-link"
+                      className="venue-link venue-link--block"
                       aria-label="Ver Salón Glück en Google Maps"
                     >
-                      Ver en mapa
-                      <svg
-                        viewBox="0 0 8 8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="1.5"
-                      >
-                        <path d="M1 7L7 1M2 1h5v5" />
-                      </svg>
+                      Ver ubicación
                     </a>
                   </div>
                 </div>
@@ -276,6 +267,9 @@ export default function Home() {
           </article>
         </div>
       </section>
+
+      {/* ══ CLIMA ═════════════════════════════════════════════════════ */}
+      <WeatherSection />
 
       {/* ══ RSVP ══════════════════════════════════════════════════════ */}
       <div id="rsvp" className="rsvp-wrap" role="region" aria-labelledby="rsvp-title">
@@ -292,17 +286,8 @@ export default function Home() {
             cada detalle con cariño.
           </p>
 
-          <div className="rsvp-embed-wrap">
-            <div className="rsvp-embed-mid">
-              <iframe
-                src="https://tally.so/embed/1ADYGl?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-                loading="lazy"
-                width="100%"
-                height={520}
-                title="RSVP — Boda Carla &amp; Ángel"
-                allow="clipboard-write"
-              />
-            </div>
+          <div className="rsvp-embed-direct">
+            <TallyEmbed />
           </div>
         </div>
       </div>
@@ -325,19 +310,6 @@ export default function Home() {
           <div className="closing-names-script">Carla &amp; Ángel</div>
           <p className="closing-date">27 · XI · 2026</p>
 
-          <div className="closing-contact">
-            ¿Dudas o preguntas?
-            <br />
-            <a
-              href="https://wa.me/521XXXXXXXXXX"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              WhatsApp
-            </a>
-            &nbsp;·&nbsp;
-            <a href="mailto:TODO@correo.com">correo electrónico</a>
-          </div>
         </div>
       </div>
 

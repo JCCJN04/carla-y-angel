@@ -16,15 +16,7 @@ function getParts() {
   };
 }
 
-function CountItem({
-  value,
-  label,
-  id,
-}: {
-  value: string;
-  label: string;
-  id?: string;
-}) {
+function CountItem({ value, label, id }: { value: string; label: string; id?: string }) {
   const [bump, setBump] = useState(false);
   const prev = useRef(value);
 
@@ -39,20 +31,12 @@ function CountItem({
 
   return (
     <div className="countdown-item">
-      <div className="countdown-card-l1">
-        <div className="countdown-card-l2">
-          <div className="countdown-card-l3">
-            <span
-              id={id}
-              className={`countdown-num${bump ? " bump" : ""}`}
-              aria-live="polite"
-            >
-              {value}
-            </span>
-            <span className="countdown-label">{label}</span>
-          </div>
-        </div>
+      <div className="countdown-circle">
+        <span id={id} className={`countdown-num${bump ? " bump" : ""}`} aria-live="polite">
+          {value}
+        </span>
       </div>
+      <span className="countdown-label">{label}</span>
     </div>
   );
 }
@@ -69,8 +53,8 @@ export default function CountdownTimer() {
     <div className="countdown-grid">
       <CountItem id="cd-days"  value={parts.days}  label="Días" />
       <CountItem id="cd-hours" value={parts.hours} label="Horas" />
-      <CountItem id="cd-min"   value={parts.min}   label="Min" />
-      <CountItem id="cd-sec"   value={parts.sec}   label="Seg" />
+      <CountItem id="cd-min"   value={parts.min}   label="Minutos" />
+      <CountItem id="cd-sec"   value={parts.sec}   label="Segundos" />
     </div>
   );
 }
