@@ -26,8 +26,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Carla & Ángel — 27 · XI · 2026",
-  description: "Te invitamos a celebrar nuestra boda el 27 de noviembre de 2026 en Monterrey, N.L.",
+  title: "Boda Carla y Angel",
 };
 
 export default function RootLayout({
