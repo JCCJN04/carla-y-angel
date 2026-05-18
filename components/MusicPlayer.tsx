@@ -7,17 +7,33 @@ export default function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Attempt autoplay on first user interaction
-    const initAudio = () => {
+    const tryPlay = () => {
       if (audioRef.current && !isPlaying) {
         audioRef.current.play().then(() => {
           setIsPlaying(true);
-        }).catch(() => {});
+        }).catch(() => {
+          // El navegador bloqueó el autoplay, esperamos interacción
+        });
       }
-      window.removeEventListener("click", initAudio);
     };
+
+    // Intentar reproducir inmediatamente al cargar
+    tryPlay();
+
+    // Fallback: reproducir al primer clic/toque en la pantalla
+    const initAudio = () => {
+      tryPlay();
+      window.removeEventListener("click", initAudio);
+      window.removeEventListener("touchstart", initAudio);
+    };
+    
     window.addEventListener("click", initAudio, { once: true });
-    return () => window.removeEventListener("click", initAudio);
+    window.addEventListener("touchstart", initAudio, { once: true });
+    
+    return () => {
+      window.removeEventListener("click", initAudio);
+      window.removeEventListener("touchstart", initAudio);
+    };
   }, [isPlaying]);
 
   const toggleMusic = (e: React.MouseEvent) => {
@@ -35,7 +51,7 @@ export default function MusicPlayer() {
 
   return (
     <>
-      <audio ref={audioRef} id="bg-music" loop>
+      <audio ref={audioRef} id="bg-music" loop autoPlay>
         <source src="/carlayangel/cancion.mp3" type="audio/mpeg" />
       </audio>
       <button

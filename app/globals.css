@@ -1469,7 +1469,7 @@ body::after {
     radial-gradient(ellipse at 50% 0%, rgba(196,160,90,.10) 0%, transparent 60%),
     linear-gradient(160deg, #D9C4B8 0%, #C8C3BB 100%);
   background-size: 400px 400px, cover, cover;
-  padding: 7rem 1.5rem;
+  padding: 2rem 1.5rem 1rem;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1521,14 +1521,14 @@ body::after {
   width: 100%;
   border: none;
   display: block;
-  min-height: 320px;
+  min-height: 180px;
 }
 
 /* â•â• Closing â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .closing-wrap {
   background: var(--deep);
   color: var(--rose-ash);
-  padding: 10rem 1.5rem;
+  padding: 2rem 1.5rem;
   text-align: center;
   position: relative;
   overflow: hidden;
