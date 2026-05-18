@@ -3,6 +3,7 @@ import CountdownTimer from "@/components/CountdownTimer";
 import GSAPAnimations from "@/components/GSAPAnimations";
 import TallyEmbed from "@/components/TallyEmbed";
 import WeatherSection from "@/components/WeatherSection";
+import RecuerdosButton from "@/components/RecuerdosButton";
 
 export default function Home() {
   return (
@@ -37,18 +38,7 @@ export default function Home() {
             Ángel Jalil Alegría Estudillo
           </p>
 
-          <div className="divider-ornament" aria-hidden="true">
-            <svg viewBox="0 0 16 16">
-              <path d="M8 1 L15 8 L8 15 L1 8 Z" />
-            </svg>
-          </div>
 
-          <p
-            className="date-display"
-            aria-label="Fecha: 27 de noviembre de 2026"
-          >
-            27 · XI · 2026
-          </p>
 
         </div>
 
@@ -69,14 +59,55 @@ export default function Home() {
           <br />
           Tu presencia no es un detalle — es parte de quiénes somos.
         </p>
-        <div className="section-ornament" aria-hidden="true">
-          <svg viewBox="0 0 16 16">
-            <path d="M8 1 L15 8 L8 15 L1 8 Z" />
-          </svg>
+      </section>
+
+      {/* ══ GALERÍA ═══════════════════════════════════════════════════ */}
+      <section className="gallery-section" aria-label="Fotos de compromiso">
+        {/* Row 1: portrait left + landscape right */}
+        <div className="gallery-row gallery-row--a">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/carlayangel/foto-luces-abrazo.jpeg"
+            alt="Carla y Ángel bajo un arco de luces doradas"
+            className="gallery-img gallery-img--portrait gallery-img--1"
+            loading="lazy"
+            decoding="async"
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/carlayangel/foto-calle-bw-beso-inclinado.jpeg"
+            alt="Beso en la calle bajo luces de navidad"
+            className="gallery-img gallery-img--landscape gallery-img--2"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        {/* Row 2: 2 images */}
+        <div className="gallery-row gallery-row--d">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/carlayangel/foto-puente-estrella-beso.jpeg"
+            alt="Beso en el puente con estrella dorada al fondo"
+            className="gallery-img gallery-img--3"
+            loading="lazy"
+            decoding="async"
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/carlayangel/foto-calle-bw-periodico.jpeg"
+            alt="Beso con periódico Carla y Ángel"
+            className="gallery-img gallery-img--5"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </section>
 
+      <RecuerdosButton />
+
       {/* ══ COUNTDOWN ═════════════════════════════════════════════════ */}
+
       <div
         className="band band--warm reveal"
         role="region"
@@ -302,11 +333,6 @@ export default function Home() {
             <br />
             Nos da mucho gusto que este sea uno de los tuyos también.
           </p>
-          <div className="closing-divider" aria-hidden="true">
-            <svg viewBox="0 0 16 16">
-              <path d="M8 1 L15 8 L8 15 L1 8 Z" />
-            </svg>
-          </div>
           <div className="closing-names-script">Carla &amp; Ángel</div>
           <p className="closing-date">27 · XI · 2026</p>
 
@@ -315,8 +341,14 @@ export default function Home() {
 
       <footer>
         <p>
-          Carla Gabriela Gómez González &amp; Ángel Jalil Alegría Estudillo
-          &mdash; 27 de Noviembre 2026
+          <a
+            href="https://invitacionesdigitalesmty.com.mx/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "inherit", textDecoration: "none" }}
+          >
+            HECHO POR INVITACIONESDIGITALESMTY.COM.MX
+          </a>
         </p>
       </footer>
     </>

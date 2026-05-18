@@ -12,7 +12,7 @@ export default function BackgroundImage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/carlayangel/fondo.jpg"
+        src="/carlayangel/fondo.svg"
         alt=""
         loading="eager"
         decoding="async"
@@ -22,8 +22,6 @@ export default function BackgroundImage() {
           objectFit: 'cover',
           objectPosition: 'center center',
           display: 'block',
-          filter: 'blur(1px)',
-          transform: 'scale(1.01)',
         }}
       />
       {/* Velo crema para suavizar y dar warmth */}

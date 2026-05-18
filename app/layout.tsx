@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { Great_Vibes, Cormorant_Garamond, Montserrat } from "next/font/google";
+import { Pinyon_Script, Cormorant_Garamond, Montserrat, Cinzel } from "next/font/google";
 import BackgroundImage from "@/components/BackgroundImage";
+import HamburgerMenu from "@/components/HamburgerMenu";
+import MusicPlayer from "@/components/MusicPlayer";
 import "./globals.css";
 
-const greatVibes = Great_Vibes({
+const pinyonScript = Pinyon_Script({
   weight: "400",
   subsets: ["latin"],
-  variable: "--font-great-vibes",
+  variable: "--font-pinyon",
   display: "swap",
 });
 
@@ -25,6 +27,13 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
+const cinzel = Cinzel({
+  weight: ["400", "600"],
+  subsets: ["latin"],
+  variable: "--font-cinzel",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Boda Carla y Angel",
 };
@@ -37,9 +46,11 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${greatVibes.variable} ${cormorant.variable} ${montserrat.variable}`}
+        className={`${pinyonScript.variable} ${cormorant.variable} ${montserrat.variable} ${cinzel.variable}`}
       >
         <BackgroundImage />
+        <HamburgerMenu />
+        <MusicPlayer />
         <div style={{ position: 'relative', zIndex: 1 }}>
           {children}
         </div>
