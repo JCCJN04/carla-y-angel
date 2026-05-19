@@ -231,7 +231,6 @@ export default function WeatherSection() {
 
   return (
     <section className="weather-section section reveal" aria-labelledby="weather-title">
-      <p className="section-label">El día de la boda</p>
       <h2 id="weather-title" className="section-title gradient-heading">
         El clima en Chiapas
       </h2>

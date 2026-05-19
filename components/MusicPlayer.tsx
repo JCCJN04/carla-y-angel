@@ -12,15 +12,14 @@ export default function MusicPlayer() {
         audioRef.current.play().then(() => {
           setIsPlaying(true);
         }).catch(() => {
-          // El navegador bloqueó el autoplay, esperamos interacción
+          // El navegador bloqueó el autoplay
         });
       }
     };
 
-    // Intentar reproducir inmediatamente al cargar
+    // Intentar reproducir al montar el componente (como el sobre ya se abrió, cuenta como interacción en algunos navegadores)
     tryPlay();
 
-    // Fallback: reproducir al primer clic/toque en la pantalla
     const initAudio = () => {
       tryPlay();
       window.removeEventListener("click", initAudio);
@@ -37,27 +36,38 @@ export default function MusicPlayer() {
   }, [isPlaying]);
 
   const toggleMusic = (e: React.MouseEvent) => {
+    e.preventDefault();
     e.stopPropagation();
+    
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
         setIsPlaying(false);
       } else {
-        audioRef.current.play().catch((err) => console.log("Autoplay blocked", err));
-        setIsPlaying(true);
+        const playPromise = audioRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            setIsPlaying(true);
+          }).catch((err) => {
+            console.log("Audio play failed:", err);
+            setIsPlaying(false);
+          });
+        } else {
+          setIsPlaying(true);
+        }
       }
     }
   };
 
   return (
     <>
-      <audio ref={audioRef} id="bg-music" loop autoPlay>
+      <audio ref={audioRef} id="bg-music" loop preload="auto">
         <source src="/carlayangel/cancion.mp3" type="audio/mpeg" />
       </audio>
       <button
         onClick={toggleMusic}
         className="music-btn"
-        aria-label="Reproducir música"
+        aria-label={isPlaying ? "Pausar música" : "Reproducir música"}
       >
         {!isPlaying ? (
           <svg viewBox="0 0 24 24" className="music-icon-play">

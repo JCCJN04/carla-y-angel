@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Pinyon_Script, Cormorant_Garamond, Montserrat, Cinzel } from "next/font/google";
 import BackgroundImage from "@/components/BackgroundImage";
-import HamburgerMenu from "@/components/HamburgerMenu";
 import "./globals.css";
 
 const pinyonScript = Pinyon_Script({
@@ -48,7 +47,6 @@ export default function RootLayout({
         className={`${pinyonScript.variable} ${cormorant.variable} ${montserrat.variable} ${cinzel.variable}`}
       >
         <BackgroundImage />
-        <HamburgerMenu />
         <div style={{ position: 'relative', zIndex: 1 }}>
           {children}
         </div>
