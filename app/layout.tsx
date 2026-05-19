@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Pinyon_Script, Cormorant_Garamond, Montserrat, Cinzel } from "next/font/google";
 import BackgroundImage from "@/components/BackgroundImage";
 import HamburgerMenu from "@/components/HamburgerMenu";
-import MusicPlayer from "@/components/MusicPlayer";
 import "./globals.css";
 
 const pinyonScript = Pinyon_Script({
@@ -50,7 +49,6 @@ export default function RootLayout({
       >
         <BackgroundImage />
         <HamburgerMenu />
-        <MusicPlayer />
         <div style={{ position: 'relative', zIndex: 1 }}>
           {children}
         </div>

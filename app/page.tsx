@@ -4,10 +4,11 @@ import GSAPAnimations from "@/components/GSAPAnimations";
 import TallyEmbed from "@/components/TallyEmbed";
 import WeatherSection from "@/components/WeatherSection";
 import RecuerdosButton from "@/components/RecuerdosButton";
+import InvitationWrapper from "@/components/InvitationWrapper";
 
 export default function Home() {
   return (
-    <>
+    <InvitationWrapper>
       <GSAPAnimations />
 
       {/* ══ HERO ══════════════════════════════════════════════════════ */}
@@ -180,45 +181,50 @@ export default function Home() {
           27 de Noviembre, 2026
         </h2>
 
-        <ul className="schedule-list" role="list">
-          <li className="schedule-item reveal">
-            <time className="schedule-time" dateTime="2026-11-27T16:00">
-              16:00
-            </time>
-            <div className="schedule-line" aria-hidden="true">
-              <span className="schedule-dot" />
-            </div>
-            <div className="schedule-info">
-              <div className="schedule-name">Misa de matrimonio</div>
-              <div className="schedule-place">Iglesia San José Mirador</div>
-            </div>
-          </li>
-
-          <li className="schedule-item schedule-item--pending reveal">
-            <span className="schedule-time">Próx.</span>
-            <div className="schedule-line" aria-hidden="true">
-              <span className="schedule-dot" />
-            </div>
-            <div className="schedule-info">
-              <div className="schedule-name">Ceremonia civil</div>
-              <div className="schedule-place">Lugar por confirmar</div>
-              <div className="schedule-note">Horario próximamente</div>
-            </div>
-          </li>
-
-          <li className="schedule-item reveal">
-            <time className="schedule-time" dateTime="2026-11-27T18:00">
-              18:00
-            </time>
-            <div className="schedule-line" aria-hidden="true">
-              <span className="schedule-dot" />
-            </div>
-            <div className="schedule-info">
-              <div className="schedule-name">Recepción &amp; fiesta</div>
-              <div className="schedule-place">Salón Glück</div>
-            </div>
-          </li>
-        </ul>
+        <div style={{ position: 'relative', maxWidth: '36rem', margin: '3rem auto 0', padding: '1rem' }}>
+          {/* Contenedor principal con forma orgánica moderna */}
+          <div
+            style={{
+              position: 'relative',
+              backgroundColor: '#ebe6dc',
+              padding: '2.5rem 0.5rem',
+              boxShadow: '0 15px 50px rgba(0,0,0,0.15)',
+              overflow: 'hidden',
+              borderRadius: '40% 60% 50% 50% / 45% 50% 50% 55%',
+              transform: 'rotate(0deg)',
+              zIndex: 2
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="/carlayangel/itinerario.png" 
+              alt="Itinerario del día" 
+              style={{ 
+                width: '100%', 
+                height: 'auto', 
+                display: 'block', 
+                transform: 'scale(1.05)',
+                mixBlendMode: 'multiply',
+                filter: 'grayscale(100%) contrast(150%) brightness(110%)'
+              }} 
+              loading="lazy"
+            />
+          </div>
+          
+          {/* Sombra decorativa desfasada */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '0.5rem',
+              right: '0.5rem',
+              width: 'calc(100% - 3rem)',
+              height: 'calc(100% - 3rem)',
+              backgroundColor: 'rgba(212, 197, 185, 0.4)',
+              borderRadius: '40% 60% 50% 50% / 45% 50% 50% 55%',
+              zIndex: 1
+            }}
+          />
+        </div>
       </section>
 
       {/* ══ SEDES ═════════════════════════════════════════════════════ */}
@@ -351,6 +357,6 @@ export default function Home() {
           </a>
         </p>
       </footer>
-    </>
+    </InvitationWrapper>
   );
 }
