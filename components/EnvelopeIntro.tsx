@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface Props {
   onOpen: () => void;
@@ -9,9 +9,15 @@ interface Props {
 export default function EnvelopeIntro({ onOpen }: Props) {
   const [isExiting, setIsExiting] = useState(false);
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
+
   const handleClick = () => {
     if (isExiting) return;
     setIsExiting(true);
+    document.body.style.overflow = '';
     setTimeout(onOpen, 950);
   };
 
@@ -53,13 +59,13 @@ export default function EnvelopeIntro({ onOpen }: Props) {
           <div 
             style={{
               position: 'absolute',
-              left: '2rem',
-              right: '2rem',
-              bottom: '-1rem',
-              height: '4rem',
-              backgroundColor: 'rgba(0,0,0,0.25)', // Más opacidad
-              filter: 'blur(25px)',
-              transform: 'translateY(1rem)',
+              left: '3rem',
+              right: '3rem',
+              bottom: '-0.5rem',
+              height: '2.5rem',
+              backgroundColor: 'rgba(0,0,0,0.3)',
+              filter: 'blur(20px)',
+              borderRadius: '50%',
               zIndex: 0,
               pointerEvents: 'none'
             }}

@@ -17,11 +17,7 @@ export default function Home() {
           <div className="hero-blob" />
         </div>
 
-        <div className="hero-inner">
-          <p className="hero-pre" aria-label="Nos casamos">
-            Nos casamos
-          </p>
-
+        <div className="hero-inner" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <div
             className="hero-script"
             role="heading"
@@ -33,14 +29,45 @@ export default function Home() {
             <span>Ángel</span>
           </div>
 
-          <p className="full-names">
-            Carla Gabriela Gómez González
-            <br />
-            Ángel Jalil Alegría Estudillo
-          </p>
+          <div 
+            style={{ 
+              marginTop: '2rem',
+              width: '100%',
+              maxWidth: '340px',
+              padding: '0 1rem',
+              position: 'relative'
+            }}
+          >
+            {/* Marco decorativo dorado sutil */}
+            <div
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                inset: '-0.5rem 0.5rem',
+                border: '1px solid rgba(196, 160, 90, 0.35)',
+                borderRadius: '10rem 10rem 1rem 1rem',
+                pointerEvents: 'none',
+                zIndex: 0
+              }}
+            />
 
-
-
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="/carlayangel/foto-calle-bw-noche-caminando.jpeg" 
+              alt="Carla y Ángel caminando de noche"
+              style={{
+                width: '100%',
+                height: 'auto',
+                aspectRatio: '4/5',
+                objectFit: 'cover',
+                borderRadius: '10rem 10rem 1rem 1rem', // Estilo arco editorial
+                boxShadow: '0 20px 50px rgba(0,0,0,0.25)',
+                display: 'block',
+                position: 'relative',
+                zIndex: 1
+              }}
+            />
+          </div>
         </div>
 
         <div className="hero-connector" aria-hidden="true" />
@@ -48,7 +75,6 @@ export default function Home() {
 
       {/* ══ MENSAJE ═══════════════════════════════════════════════════ */}
       <section className="section reveal" aria-labelledby="msg-title">
-        <p className="section-label">Una invitación de corazón</p>
         <h2 id="msg-title" className="section-title gradient-heading">
           Queremos que estés ahí
         </h2>
@@ -56,9 +82,6 @@ export default function Home() {
           Después de mucho tiempo compartido, llegó el día de hacerlo oficial.
           Queremos que estés con nosotros cuando le digamos sí al resto de
           nuestras vidas.
-          <br />
-          <br />
-          Tu presencia no es un detalle — es parte de quiénes somos.
         </p>
       </section>
 
@@ -176,9 +199,8 @@ export default function Home() {
         style={{ maxWidth: 700 }}
         aria-labelledby="prog-title"
       >
-        <p className="section-label">Programa del día</p>
         <h2 id="prog-title" className="section-title gradient-heading">
-          27 de Noviembre, 2026
+          Programa del día
         </h2>
 
         <div style={{ position: 'relative', maxWidth: '36rem', margin: '3rem auto 0', padding: '1rem' }}>
@@ -187,26 +209,28 @@ export default function Home() {
             style={{
               position: 'relative',
               backgroundColor: '#ebe6dc',
-              padding: '2.5rem 0.5rem',
+              padding: '4rem 0.5rem',
               boxShadow: '0 15px 50px rgba(0,0,0,0.15)',
               overflow: 'hidden',
               borderRadius: '40% 60% 50% 50% / 45% 50% 50% 55%',
               transform: 'rotate(0deg)',
-              zIndex: 2
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img 
-              src="/carlayangel/itinerario.png" 
-              alt="Itinerario del día" 
-              style={{ 
-                width: '100%', 
-                height: 'auto', 
-                display: 'block', 
-                transform: 'scale(1.05)',
+            <img
+              src="/carlayangel/itinerario.png"
+              alt="Itinerario del día"
+              style={{
+                width: '100%',
+                height: 'auto',
+                display: 'block',
+                transform: 'scale(1.15)',
                 mixBlendMode: 'multiply',
                 filter: 'grayscale(100%) contrast(150%) brightness(110%)'
-              }} 
+              }}
               loading="lazy"
             />
           </div>
@@ -221,7 +245,7 @@ export default function Home() {
               height: 'calc(100% - 3rem)',
               backgroundColor: 'rgba(212, 197, 185, 0.4)',
               borderRadius: '40% 60% 50% 50% / 45% 50% 50% 55%',
-              zIndex: 1
+              zIndex: -1
             }}
           />
         </div>
@@ -229,79 +253,82 @@ export default function Home() {
 
       {/* ══ SEDES ═════════════════════════════════════════════════════ */}
       <section className="section reveal" aria-labelledby="venues-title">
-        <p className="section-label">Lugares</p>
         <h2 id="venues-title" className="section-title gradient-heading">
           ¿Dónde nos vemos?
         </h2>
 
         <div className="venue-grid">
           {/* ── Iglesia ── */}
-          <article className="venue-card-l1 reveal-left">
-            <div className="venue-card-l2">
-              <div className="venue-card-l3">
-                <div className="venue-card venue-card--map">
-                  <div className="venue-map-top">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/carlayangel/iglesia.png"
-                      alt="Iglesia San José Mirador"
-                      style={{ width: '100%', height: 210, objectFit: 'cover', display: 'block' }}
-                    />
-                  </div>
-                  <div className="venue-card-inner venue-card-body">
-                    <p className="venue-event-label">Ceremonia Religiosa</p>
-                    <p className="venue-card-time">16:00 hrs</p>
-                    <h3 className="venue-card-name">Iglesia San José Mirador</h3>
-                    <div className="venue-card-addr">Chiapas</div>
-                    <div className="venue-card-divider" aria-hidden="true" />
-                    <a
-                      href="https://maps.google.com/?q=Iglesia+San+Jose+Mirador+Chiapas"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="venue-link venue-link--block"
-                      aria-label="Ver Iglesia San José Mirador en Google Maps"
-                    >
-                      Ver ubicación
-                    </a>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <p className="venue-event-label" style={{ textAlign: 'center' }}>Ceremonia Religiosa</p>
+            <article className="venue-card-l1 reveal-left">
+              <div className="venue-card-l2">
+                <div className="venue-card-l3">
+                  <div className="venue-card venue-card--map">
+                    <div className="venue-map-top">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/carlayangel/iglesia.png"
+                        alt="Iglesia San José Mirador"
+                        style={{ width: '100%', height: 210, objectFit: 'cover', display: 'block' }}
+                      />
+                    </div>
+                    <div className="venue-card-inner venue-card-body">
+                      <p className="venue-card-time">16:00 hrs</p>
+                      <h3 className="venue-card-name">Iglesia San José Mirador</h3>
+                      <div className="venue-card-addr">Chiapas</div>
+                      <div className="venue-card-divider" aria-hidden="true" />
+                      <a
+                        href="https://maps.google.com/?q=Iglesia+San+Jose+Mirador+Chiapas"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="venue-link venue-link--block"
+                        aria-label="Ver Iglesia San José Mirador en Google Maps"
+                      >
+                        Ver ubicación
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
 
           {/* ── Salón ── */}
-          <article className="venue-card-l1 reveal-right">
-            <div className="venue-card-l2">
-              <div className="venue-card-l3">
-                <div className="venue-card venue-card--map">
-                  <div className="venue-map-top">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/carlayangel/salon.png"
-                      alt="Salón Glück"
-                      style={{ width: '100%', height: 210, objectFit: 'cover', display: 'block' }}
-                    />
-                  </div>
-                  <div className="venue-card-inner venue-card-body">
-                    <p className="venue-event-label">Ceremonia Civil y Recepción</p>
-                    <p className="venue-card-time">18:00 hrs</p>
-                    <h3 className="venue-card-name">Salón Glück</h3>
-                    <div className="venue-card-addr">Chiapas</div>
-                    <div className="venue-card-divider" aria-hidden="true" />
-                    <a
-                      href="https://maps.google.com/?q=Salon+Gluck+Chiapas"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="venue-link venue-link--block"
-                      aria-label="Ver Salón Glück en Google Maps"
-                    >
-                      Ver ubicación
-                    </a>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <p className="venue-event-label" style={{ textAlign: 'center' }}>Ceremonia Civil y Recepción</p>
+            <article className="venue-card-l1 reveal-right">
+              <div className="venue-card-l2">
+                <div className="venue-card-l3">
+                  <div className="venue-card venue-card--map">
+                    <div className="venue-map-top">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/carlayangel/salon.png"
+                        alt="Salón Glück"
+                        style={{ width: '100%', height: 210, objectFit: 'cover', display: 'block' }}
+                      />
+                    </div>
+                    <div className="venue-card-inner venue-card-body">
+                      <p className="venue-card-time">18:00 hrs</p>
+                      <h3 className="venue-card-name">Salón Glück</h3>
+                      <div className="venue-card-addr">Chiapas</div>
+                      <div className="venue-card-divider" aria-hidden="true" />
+                      <a
+                        href="https://maps.google.com/?q=Salon+Gluck+Chiapas"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="venue-link venue-link--block"
+                        aria-label="Ver Salón Glück en Google Maps"
+                      >
+                        Ver ubicación
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -311,7 +338,6 @@ export default function Home() {
       {/* ══ RSVP ══════════════════════════════════════════════════════ */}
       <div id="rsvp" className="rsvp-wrap" role="region" aria-labelledby="rsvp-title">
         <div className="rsvp-inner reveal">
-          <p className="section-label">Confirmación de asistencia</p>
           <h2 id="rsvp-title" className="rsvp-script">
             ¿Nos acompañas?
           </h2>
@@ -332,7 +358,6 @@ export default function Home() {
       {/* ══ CIERRE ════════════════════════════════════════════════════ */}
       <div className="closing-wrap" role="contentinfo">
         <div className="closing-inner reveal">
-          <p className="section-label">Con todo nuestro amor</p>
           <h2 className="closing-script">¡Te esperamos!</h2>
           <p className="closing-body">
             Hay días que se recuerdan para siempre.
@@ -340,7 +365,6 @@ export default function Home() {
             Nos da mucho gusto que este sea uno de los tuyos también.
           </p>
           <div className="closing-names-script">Carla &amp; Ángel</div>
-          <p className="closing-date">27 · XI · 2026</p>
 
         </div>
       </div>
