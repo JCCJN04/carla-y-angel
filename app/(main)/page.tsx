@@ -728,16 +728,19 @@ export default function PageV2() {
 
       {/* ══ ENVELOPE INTRO ══════════════════════════════ */}
       {showIntro && (
-        <div className={`env-screen${isExiting ? " env-screen--exit" : ""}`}>
-          <div aria-hidden="true" className="env-bg">
+        <div
+          className={`env-screen${isExiting ? " env-screen--exit" : ""}`}
+          style={{ position: "fixed", inset: 0, zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center" }}
+        >
+          <div aria-hidden="true" className="env-bg" style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/carlayangel/fondo-verde.svg" alt="" loading="eager" decoding="async" />
-            <div className="env-bg-veil" />
+            <img src="/carlayangel/fondo-verde.svg" alt="" loading="eager" decoding="async" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            <div className="env-bg-veil" style={{ position: "absolute", inset: 0, background: "rgba(250, 244, 235, .52)" }} />
           </div>
-          <div className="env-content">
-            <div className="env-title">
-              <h1 className="env-names">
-                Carla <span className="env-amp">&amp;</span> Ángel
+          <div className="env-content" style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5rem", padding: "2rem 1.5rem", textAlign: "center" }}>
+            <div className="env-title" style={{ color: "inherit" }}>
+              <h1 className="env-names" style={{ fontFamily: "var(--font-pinyon), cursive", fontSize: "clamp(3.4rem, 9.5vw, 6.5rem)", color: "#28211C", lineHeight: 1, fontWeight: 400 }}>
+                Carla <span className="env-amp" style={{ color: "#8B6248" }}>&amp;</span> Ángel
               </h1>
             </div>
             <div className="env-img-wrap" style={{ position: "relative", display: "flex", justifyContent: "center" }}>
@@ -788,8 +791,8 @@ export default function PageV2() {
                 }}
               />
             </div>
-            <div className="env-hint">
-              <p className="env-instruction">
+            <div className="env-hint" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <p className="env-instruction" style={{ fontFamily: "var(--font-cormorant), serif", fontStyle: "italic", fontSize: "clamp(.88rem, 1.9vw, 1.05rem)", color: "#4E4540", letterSpacing: ".04em", lineHeight: 1.55, transform: "rotate(-9deg)" }}>
                 Toca el sobre para<br />abrir tu invitación
               </p>
             </div>
