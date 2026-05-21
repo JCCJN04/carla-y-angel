@@ -101,6 +101,7 @@ function Countdown() {
       {items.map(({ v, l }) => (
         <div key={l} className="cd-item">
           <span className="cd-num">{v}</span>
+          <div className="cd-divline" />
           <span className="cd-label">{l}</span>
         </div>
       ))}
@@ -343,16 +344,28 @@ export default function PageV2() {
         /* ══ CARD ════════════════════════════════════ */
         .v2-card {
           background: #fff;
-          border-radius: 0.5rem;
+          border-radius: 1.25rem;
           box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 12px 40px rgba(0,0,0,0.08);
           width: 100%;
           max-width: 420px;
           overflow: hidden;
         }
-        .v2-card--olive { background: #5b6b47; }
+        .v2-card--olive {
+          background: linear-gradient(145deg, #4a5c38 0%, #5b6b47 45%, #6a7d54 100%);
+          position: relative;
+        }
+        .v2-card--olive::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(ellipse at 10% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 90% 80%, rgba(0,0,0,0.12) 0%, transparent 50%);
+          pointer-events: none;
+        }
         .v2-card--cream { background: #f0ede6; }
 
-        .v2-card-pad { padding: 2rem 1.75rem; }
+        .v2-card-pad { padding: 2.25rem 2rem; }
 
         /* ══ SECTION LABELS ═════════════════════════ */
         .v2-section-label {
@@ -454,32 +467,60 @@ export default function PageV2() {
         }
 
         /* ══ GIFTS ══════════════════════════════════ */
-        .v2-gifts-icon { display: flex; justify-content: center; margin-bottom: 1rem; }
+        .v2-gifts-icon {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 1.25rem;
+        }
+        .v2-gifts-logo-ring {
+          width: 90px;
+          height: 90px;
+          border-radius: 50%;
+          border: 2px solid rgba(196,160,90,0.60);
+          box-shadow: 0 0 0 5px rgba(196,160,90,0.10), 0 8px 24px rgba(0,0,0,0.10);
+          object-fit: cover;
+        }
         .v2-gifts-text {
-          font-size: 0.82rem;
-          line-height: 1.85;
+          font-size: 0.80rem;
+          line-height: 1.9;
           text-align: center;
           color: rgba(255,255,255,0.88);
           font-weight: 300;
+        }
+        .v2-liverpool-wrap {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.4rem;
+          margin-top: 1.5rem;
+          text-decoration: none;
+        }
+        .v2-liverpool-wrap:hover img { opacity: 0.8; }
+        .v2-liverpool-caption {
+          font-size: 0.58rem;
+          letter-spacing: 0.20em;
+          text-transform: uppercase;
+          color: #8a8278;
+          font-family: var(--font-cinzel), serif;
+          font-weight: 600;
         }
 
         /* ══ DRESS CODE ═════════════════════════════ */
         .v2-dress-subtitle {
           font-family: var(--font-cormorant), serif;
-          font-size: 2.8rem;
-          font-weight: 300;
+          font-size: 3rem;
+          font-weight: 400;
           color: #1e1e1e;
           text-align: center;
           line-height: 1;
-          letter-spacing: 0.04em;
-          margin-bottom: 0.75rem;
+          letter-spacing: 0.02em;
+          margin: 0.5rem 0 0.85rem;
         }
         .v2-dress-body {
           font-size: 0.75rem;
-          line-height: 1.8;
+          line-height: 1.85;
           color: #5a5a5a;
           text-align: center;
-          margin-bottom: 1.25rem;
           font-weight: 300;
         }
         .v2-dress-note {
@@ -487,7 +528,7 @@ export default function PageV2() {
           color: #5b6b47;
           font-style: italic;
           display: block;
-          margin-top: 0.25rem;
+          margin-top: 0.4rem;
         }
         .v2-swatches {
           display: flex;
@@ -513,61 +554,71 @@ export default function PageV2() {
           color: #7a7a7a;
         }
 
+        /* ══ THIN RULE ══════════════════════════════ */
+        .v2-thin-rule {
+          width: 100%;
+          max-width: 180px;
+          height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(196,160,90,0.55), transparent);
+          margin: 0.9rem auto;
+        }
+
         /* ══ COUNTDOWN ══════════════════════════════ */
         .v2-cd-label {
-          font-size: 0.65rem;
-          letter-spacing: 0.16em;
-          text-transform: uppercase;
-          color: #7a7a7a;
+          font-family: var(--font-pinyon), cursive;
+          font-size: 1.8rem;
+          color: #8a8278;
           text-align: center;
-          margin-bottom: 1rem;
-          font-weight: 500;
+          margin-bottom: 0.25rem;
+          font-weight: 400;
         }
         .cd-grid {
           display: flex;
-          gap: 0;
           justify-content: center;
+          align-items: flex-start;
+          gap: 0;
+          margin: 0.5rem 0 0.25rem;
         }
         .cd-item {
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding: 0 1rem;
+          padding: 0 1.1rem;
           position: relative;
         }
-        .cd-item + .cd-item::before {
-          content: ':';
-          position: absolute;
-          left: -2px;
-          top: 0.2rem;
-          font-family: var(--font-cormorant), serif;
-          font-size: 2.4rem;
-          color: rgba(91,107,71,0.4);
-          line-height: 1;
+        .cd-item + .cd-item {
+          border-left: 1px solid rgba(196,160,90,0.30);
         }
+        .cd-item + .cd-item::before { display: none; }
         .cd-num {
           font-family: var(--font-cormorant), serif;
-          font-size: clamp(2.2rem, 8vw, 3rem);
+          font-size: clamp(3rem, 11vw, 4rem);
           font-weight: 300;
           color: #1e1e1e;
           line-height: 1;
           letter-spacing: -0.02em;
         }
+        .cd-divline {
+          width: 24px;
+          height: 1px;
+          background: rgba(196,160,90,0.55);
+          margin: 0.3rem auto 0.2rem;
+        }
         .cd-label {
-          font-size: 0.62rem;
-          letter-spacing: 0.14em;
+          font-size: 0.50rem;
+          letter-spacing: 0.22em;
           text-transform: uppercase;
-          color: #5b6b47;
-          margin-top: 0.35rem;
-          font-weight: 500;
+          color: #7a7270;
+          font-weight: 600;
+          font-family: var(--font-cinzel), serif;
         }
         .v2-cd-sub {
-          font-size: 0.68rem;
-          letter-spacing: 0.16em;
-          text-transform: uppercase;
-          color: #7a7a7a;
+          font-family: var(--font-pinyon), cursive;
+          font-size: 1.6rem;
+          color: #8a8278;
           text-align: center;
-          margin-top: 1.25rem;
+          margin-top: 0.5rem;
+          font-weight: 400;
         }
 
         /* ══ PHOTO GALLERY STRIP ════════════════════ */
@@ -1008,28 +1059,20 @@ export default function PageV2() {
                 Si desean hacernos un obsequio,<br />
                 lo recibiremos con mucho cariño.
               </p>
+              {/* Liverpool logo */}
               <a
                 href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51455376"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  display: "inline-block",
-                  marginTop: "1.25rem",
-                  border: "1.5px solid rgba(255,255,255,0.6)",
-                  color: "#fff",
-                  background: "transparent",
-                  borderRadius: "0.3rem",
-                  padding: "0.6rem 1.75rem",
-                  fontFamily: "var(--font-cinzel), serif",
-                  fontSize: "0.56rem",
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  textDecoration: "none",
-                  fontWeight: 500,
-                  transition: "background 0.2s, color 0.2s",
-                }}
+                className="v2-liverpool-wrap"
               >
-                Mesa de regalos Liverpool
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/carlayangel/liverpool-logo.png"
+                  alt="Liverpool"
+                  style={{ width: 130, height: "auto", objectFit: "contain", display: "block", filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.3))", transition: "opacity 0.2s" }}
+                />
+                <span className="v2-liverpool-caption" style={{ color: "rgba(255,255,255,0.75)" }}>Mesa de regalos</span>
               </a>
             </div>
           </div>
@@ -1037,7 +1080,7 @@ export default function PageV2() {
 
         {/* ══ 9. RSVP ════════════════════════════════════ */}
         <section className="v2-section">
-          <div className="v2-card">
+          <div className="v2-card" style={{ overflow: "visible" }}>
             <div className="v2-card-pad">
               <p className="v2-section-label">Confirmación de asistencia</p>
               <h2 className="v2-section-title">¿Nos acompañas?</h2>
@@ -1078,7 +1121,6 @@ export default function PageV2() {
             Nos da mucho gusto que este sea<br />uno de los tuyos también.
           </p>
           <div className="v2-closing-names">Carla &amp; Ángel</div>
-          {/* Small ornament */}
           <svg width="80" height="12" viewBox="0 0 80 12" fill="none" aria-hidden style={{ marginTop: "0.5rem" }}>
             <line x1="0" y1="6" x2="34" y2="6" stroke="rgba(91,107,71,0.3)" strokeWidth="1"/>
             <circle cx="40" cy="6" r="3" fill="rgba(91,107,71,0.45)"/>
