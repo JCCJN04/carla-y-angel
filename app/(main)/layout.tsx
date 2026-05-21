@@ -7,14 +7,8 @@ export const metadata: Metadata = {
 
 export default function V2Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div
-      style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 5,
-      }}
-    >
-      {/* Fondo verde menta — cubre el fondo rosa del root layout */}
+    <div style={{ position: "relative", zIndex: 1 }}>
+      {/* Fondo verde — position fixed para cubrir viewport sin afectar el scroll */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/carlayangel/fondo-verde.svg"
@@ -23,14 +17,14 @@ export default function V2Layout({ children }: { children: React.ReactNode }) {
         loading="eager"
         decoding="async"
         style={{
-          position: "absolute",
+          position: "fixed",
           inset: 0,
           width: "100%",
           height: "100%",
           objectFit: "cover",
           objectPosition: "center center",
           display: "block",
-          zIndex: 0,
+          zIndex: 5,
           pointerEvents: "none",
         }}
       />
@@ -38,24 +32,16 @@ export default function V2Layout({ children }: { children: React.ReactNode }) {
       <div
         aria-hidden="true"
         style={{
-          position: "absolute",
+          position: "fixed",
           inset: 0,
           background: "rgba(242, 248, 240, 0.52)",
-          zIndex: 1,
+          zIndex: 6,
           pointerEvents: "none",
         }}
       />
 
-      {/* Contenido scrollable */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 2,
-          overflowY: "auto",
-          overflowX: "hidden",
-        }}
-      >
+      {/* Contenido — flujo normal de documento para scroll nativo en todos los browsers */}
+      <div style={{ position: "relative", zIndex: 7 }}>
         {children}
       </div>
     </div>

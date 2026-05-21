@@ -1668,13 +1668,16 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal-left, .reveal-right, .reveal-scale,
   .hero-pre, .hero-script, .full-names,
-  .divider-ornament, .date-display, .hero-cta-wrap {
+  .divider-ornament, .date-display, .hero-cta-wrap,
+  /* Env screen — sin animaciones, elementos visibles de inmediato */
+  .env-title, .env-img-wrap, .env-hint, .env-date {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
     animation: none !important;
   }
-  .hero-cta svg, #cd-days, .divider-ornament svg, .hero-blob, .hero-cta::before {
+  .hero-cta svg, #cd-days, .divider-ornament svg, .hero-blob, .hero-cta::before,
+  .env-img, .env-arrow-path, .env-arrow-tip, .env-glow {
     animation: none !important;
   }
 }

@@ -150,7 +150,7 @@ export default function PageV2() {
         /* ── Decorative top band ── */
         .v2-top-band {
           height: 5px;
-          background: linear-gradient(90deg, #a3b18a, #5b6b47, #a3b18a);
+          background: linear-gradient(90deg, #8A8872, #4A4A38, #8A8872);
         }
 
         /* ══ HEADER ══════════════════════════════════ */
@@ -167,7 +167,7 @@ export default function PageV2() {
           width: 140px;
           height: 100px;
           margin-bottom: 1.5rem;
-          filter: drop-shadow(0 8px 20px rgba(91,107,71,0.2));
+          filter: drop-shadow(0 8px 20px rgba(74,74,56,0.2));
         }
 
         /* ══ MUSIC PLAYER ══════════════════════════════ */
@@ -177,7 +177,7 @@ export default function PageV2() {
           align-items: center;
           gap: 0.75rem;
           padding: 1.25rem 2.5rem 0.5rem;
-          border-top: 1px solid rgba(91,107,71,0.15);
+          border-top: 1px solid rgba(74,74,56,0.15);
           width: 100%;
           max-width: 360px;
         }
@@ -185,7 +185,7 @@ export default function PageV2() {
           font-size: 0.65rem;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          color: #5b6b47;
+          color: #4A4A38;
           font-weight: 500;
           font-family: var(--font-cinzel), serif;
         }
@@ -202,15 +202,15 @@ export default function PageV2() {
           align-items: center;
           justify-content: center;
           transition: transform 0.15s, opacity 0.15s;
-          color: #5b6b47;
+          color: #4A4A38;
         }
         .player-btn:hover { opacity: 0.7; transform: scale(1.1); }
         .player-btn--sm { width: 36px; height: 36px; }
-        .player-btn--sm svg { width: 18px; height: 18px; fill: #5b6b47; }
+        .player-btn--sm svg { width: 18px; height: 18px; fill: #4A4A38; }
         .player-btn--main {
           width: 52px; height: 52px; border-radius: 50%;
-          background: #5b6b47;
-          box-shadow: 0 4px 16px rgba(91,107,71,0.35);
+          background: #4A4A38;
+          box-shadow: 0 4px 16px rgba(74,74,56,0.35);
         }
         .player-btn--main svg { width: 24px; height: 24px; fill: #fff; }
         .player-btn--main:hover { transform: scale(1.05); opacity: 1; }
@@ -246,7 +246,7 @@ export default function PageV2() {
           content: '';
           position: absolute;
           inset: 0.75rem;
-          border: 1px dashed rgba(91,107,71,0.25);
+          border: 1px dashed rgba(74,74,56,0.25);
           border-radius: 0.25rem;
           pointer-events: none;
         }
@@ -255,7 +255,7 @@ export default function PageV2() {
           font-size: 0.65rem;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #7a8f61;
+          color: #5C5C48;
           font-weight: 500;
           margin-bottom: 0.85rem;
         }
@@ -270,7 +270,7 @@ export default function PageV2() {
         }
         .v2-names em {
           font-style: normal;
-          color: #5b6b47;
+          color: #4A4A38;
         }
         .v2-divider {
           display: flex;
@@ -284,12 +284,12 @@ export default function PageV2() {
           content: '';
           flex: 1;
           height: 1px;
-          background: linear-gradient(to right, transparent, rgba(91,107,71,0.4));
+          background: linear-gradient(to right, transparent, rgba(74,74,56,0.4));
         }
         .v2-divider::after {
-          background: linear-gradient(to left, transparent, rgba(91,107,71,0.4));
+          background: linear-gradient(to left, transparent, rgba(74,74,56,0.4));
         }
-        .v2-diamond { color: #5b6b47; font-size: 0.5rem; }
+        .v2-diamond { color: #4A4A38; font-size: 0.5rem; }
         .v2-date-place {
           font-size: 0.72rem;
           letter-spacing: 0.1em;
@@ -306,7 +306,7 @@ export default function PageV2() {
           margin: 0.5rem auto 1.5rem;
         }
         .v2-monogram {
-          background: #5b6b47;
+          background: #4A4A38;
           border-radius: 999px;
           width: 80px; height: 110px;
           display: flex;
@@ -314,7 +314,7 @@ export default function PageV2() {
           align-items: center;
           justify-content: center;
           gap: 0;
-          box-shadow: 0 8px 28px rgba(91,107,71,0.32);
+          box-shadow: 0 8px 28px rgba(74,74,56,0.32);
           position: relative;
         }
         .v2-monogram::before {
@@ -351,7 +351,7 @@ export default function PageV2() {
           overflow: hidden;
         }
         .v2-card--olive {
-          background: linear-gradient(145deg, #4a5c38 0%, #5b6b47 45%, #6a7d54 100%);
+          background: linear-gradient(145deg, #3A3A2C 0%, #4A4A38 45%, #585848 100%);
           position: relative;
         }
         .v2-card--olive::before {
@@ -372,7 +372,7 @@ export default function PageV2() {
           font-size: 0.62rem;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #5b6b47;
+          color: #4A4A38;
           font-weight: 600;
           font-family: var(--font-cinzel), serif;
           text-align: center;
@@ -385,7 +385,7 @@ export default function PageV2() {
         .v2-section-label::before, .v2-section-label::after {
           content: '';
           width: 24px; height: 1px;
-          background: rgba(91,107,71,0.4);
+          background: rgba(74,74,56,0.4);
         }
         .v2-section-label--white { color: rgba(255,255,255,0.8); }
         .v2-section-label--white::before,
@@ -428,14 +428,14 @@ export default function PageV2() {
           font-size: 0.7rem;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: #5b6b47;
+          color: #4A4A38;
           font-weight: 500;
           margin-bottom: 0.85rem;
         }
         .v2-loc-btn {
           display: inline-block;
-          border: 1.5px solid #5b6b47;
-          color: #5b6b47;
+          border: 1.5px solid #4A4A38;
+          color: #4A4A38;
           background: transparent;
           border-radius: 0.3rem;
           padding: 0.5rem 1.5rem;
@@ -448,11 +448,11 @@ export default function PageV2() {
           transition: background 0.2s, color 0.2s;
           cursor: pointer;
         }
-        .v2-loc-btn:hover { background: #5b6b47; color: #fff; }
+        .v2-loc-btn:hover { background: #4A4A38; color: #fff; }
 
         .v2-event-divider {
           height: 1px;
-          background: rgba(91,107,71,0.15);
+          background: rgba(74,74,56,0.15);
           margin: 1.5rem 1.5rem;
         }
 
@@ -525,7 +525,7 @@ export default function PageV2() {
         }
         .v2-dress-note {
           font-size: 0.68rem;
-          color: #5b6b47;
+          color: #4A4A38;
           font-style: italic;
           display: block;
           margin-top: 0.4rem;
@@ -650,7 +650,7 @@ export default function PageV2() {
           margin-bottom: 1.5rem;
           font-weight: 300;
         }
-        .v2-rsvp-note strong { color: #5b6b47; font-weight: 500; }
+        .v2-rsvp-note strong { color: #4A4A38; font-weight: 500; }
 
         /* ══ CLOSING ════════════════════════════════ */
         .v2-closing {
@@ -679,7 +679,7 @@ export default function PageV2() {
           font-family: var(--font-pinyon), cursive;
           font-size: 2.2rem;
           font-weight: 400;
-          color: #5b6b47;
+          color: #4A4A38;
           letter-spacing: 0.04em;
           margin-top: 0.5rem;
         }
@@ -688,7 +688,7 @@ export default function PageV2() {
         .v2-footer {
           padding: 1rem 1.5rem 2.5rem;
           text-align: center;
-          border-top: 1px solid rgba(91,107,71,0.12);
+          border-top: 1px solid rgba(74,74,56,0.12);
         }
         .v2-footer a {
           font-size: 0.62rem;
@@ -697,12 +697,12 @@ export default function PageV2() {
           color: #aaa;
           text-decoration: none;
         }
-        .v2-footer a:hover { color: #5b6b47; }
+        .v2-footer a:hover { color: #4A4A38; }
 
         /* ══ BOTTOM BAND ════════════════════════════ */
         .v2-bottom-band {
           height: 5px;
-          background: linear-gradient(90deg, #a3b18a, #5b6b47, #a3b18a);
+          background: linear-gradient(90deg, #8A8872, #4A4A38, #8A8872);
         }
 
         /* ── Fade-in animation ── */
@@ -723,7 +723,7 @@ export default function PageV2() {
         /* Scrollbar */
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: #f7f5f0; }
-        ::-webkit-scrollbar-thumb { background: rgba(91,107,71,0.3); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: rgba(74,74,56,0.3); border-radius: 4px; }
       `}</style>
 
       {/* ══ ENVELOPE INTRO ══════════════════════════════ */}
@@ -805,7 +805,7 @@ export default function PageV2() {
         <header className="v2-header v2-fade v2-fade-1">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/carlayangel/sobre.png"
+            src="/carlayangel/sobre2.png"
             alt="Sobre de invitación"
             style={{
               width: 200,
@@ -841,7 +841,7 @@ export default function PageV2() {
               style={{
                 position: "absolute",
                 inset: "-0.5rem 0.5rem",
-                border: "1px solid rgba(91,107,71,0.3)",
+                border: "1px solid rgba(74,74,56,0.3)",
                 borderRadius: "10rem 10rem 1rem 1rem",
                 pointerEvents: "none",
                 zIndex: 0,
@@ -877,7 +877,7 @@ export default function PageV2() {
               height: 110,
               objectFit: "contain",
               borderRadius: "50%",
-              boxShadow: "0 8px 28px rgba(91,107,71,0.25)",
+              boxShadow: "0 8px 28px rgba(74,74,56,0.25)",
               display: "block",
             }}
           />
@@ -1122,9 +1122,9 @@ export default function PageV2() {
           </p>
           <div className="v2-closing-names">Carla &amp; Ángel</div>
           <svg width="80" height="12" viewBox="0 0 80 12" fill="none" aria-hidden style={{ marginTop: "0.5rem" }}>
-            <line x1="0" y1="6" x2="34" y2="6" stroke="rgba(91,107,71,0.3)" strokeWidth="1"/>
-            <circle cx="40" cy="6" r="3" fill="rgba(91,107,71,0.45)"/>
-            <line x1="46" y1="6" x2="80" y2="6" stroke="rgba(91,107,71,0.3)" strokeWidth="1"/>
+            <line x1="0" y1="6" x2="34" y2="6" stroke="rgba(74,74,56,0.3)" strokeWidth="1"/>
+            <circle cx="40" cy="6" r="3" fill="rgba(74,74,56,0.45)"/>
+            <line x1="46" y1="6" x2="80" y2="6" stroke="rgba(74,74,56,0.3)" strokeWidth="1"/>
           </svg>
         </div>
 
