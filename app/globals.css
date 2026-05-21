@@ -1774,8 +1774,7 @@ footer {
 
 /* Title block */
 .env-title {
-  opacity: 0;
-  animation: env-fade-up 1.2s var(--ease-smooth) .35s forwards;
+  animation: env-fade-up 1.2s var(--ease-smooth) .35s both;
 }
 .env-pre {
   font-family: var(--font-cinzel), serif;
@@ -1805,8 +1804,7 @@ footer {
 /* Envelope */
 .env-img-wrap {
   position: relative;
-  opacity: 0;
-  animation: env-fade-up 1.4s cubic-bezier(.19,1,.22,1) .05s forwards;
+  animation: env-fade-up 1.4s cubic-bezier(.19,1,.22,1) .05s both;
 }
 .env-glow {
   position: absolute;
@@ -1831,8 +1829,7 @@ footer {
 
 /* Hint */
 .env-hint {
-  opacity: 0;
-  animation: env-fade-up .9s var(--ease-smooth) 1.9s forwards;
+  animation: env-fade-up .9s var(--ease-smooth) 1.9s both;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1869,8 +1866,7 @@ footer {
   letter-spacing: .42em;
   color: var(--gold);
   text-transform: uppercase;
-  opacity: 0;
-  animation: env-fade-up .9s var(--ease-smooth) .7s forwards;
+  animation: env-fade-up .9s var(--ease-smooth) .7s both;
 }
 
 /* ══ Floating Music Button ════════════════════════════════════════════ */

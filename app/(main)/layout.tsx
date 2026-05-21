@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function V2Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ position: "relative", zIndex: 1 }}>
+    <>
       {/* Fondo verde — position fixed para cubrir viewport sin afectar el scroll */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -41,9 +41,9 @@ export default function V2Layout({ children }: { children: React.ReactNode }) {
       />
 
       {/* Contenido — flujo normal de documento para scroll nativo en todos los browsers */}
-      <div style={{ position: "relative", zIndex: 7 }}>
+      <div style={{ position: "relative" }}>
         {children}
       </div>
-    </div>
+    </>
   );
 }
