@@ -2,6 +2,8 @@
 
 import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
+import GSAPAnimations from "@/components/GSAPAnimations";
+import WeatherSection from "@/components/WeatherSection";
 
 /* ─────────────────────────────────────────────────────────
    CONSTANTS
@@ -110,6 +112,24 @@ function Countdown() {
    PAGE
 ───────────────────────────────────────────────────────── */
 export default function PageV2() {
+  const [showIntro, setShowIntro] = useState(true);
+  const [isExiting, setIsExiting] = useState(false);
+
+  useEffect(() => {
+    if (showIntro) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [showIntro]);
+
+  const handleOpen = () => {
+    if (isExiting) return;
+    setIsExiting(true);
+    setTimeout(() => setShowIntro(false), 950);
+  };
+
   return (
     <>
       <style>{`
@@ -120,7 +140,7 @@ export default function PageV2() {
         /* ── Root ── */
         .v2-root {
           min-height: 100vh;
-          background: #f7f5f0;
+          background: transparent;
           font-family: var(--font-montserrat), sans-serif;
           color: #2d2d2d;
           overflow-x: hidden;
@@ -161,7 +181,7 @@ export default function PageV2() {
           max-width: 360px;
         }
         .player-label {
-          font-size: 0.55rem;
+          font-size: 0.65rem;
           letter-spacing: 0.2em;
           text-transform: uppercase;
           color: #5b6b47;
@@ -231,8 +251,8 @@ export default function PageV2() {
         }
 
         .v2-pre {
-          font-size: 0.55rem;
-          letter-spacing: 0.22em;
+          font-size: 0.65rem;
+          letter-spacing: 0.18em;
           text-transform: uppercase;
           color: #7a8f61;
           font-weight: 500;
@@ -270,8 +290,8 @@ export default function PageV2() {
         }
         .v2-diamond { color: #5b6b47; font-size: 0.5rem; }
         .v2-date-place {
-          font-size: 0.65rem;
-          letter-spacing: 0.12em;
+          font-size: 0.72rem;
+          letter-spacing: 0.1em;
           text-transform: uppercase;
           color: #6a6a6a;
           line-height: 2;
@@ -336,8 +356,8 @@ export default function PageV2() {
 
         /* ══ SECTION LABELS ═════════════════════════ */
         .v2-section-label {
-          font-size: 0.52rem;
-          letter-spacing: 0.22em;
+          font-size: 0.62rem;
+          letter-spacing: 0.18em;
           text-transform: uppercase;
           color: #5b6b47;
           font-weight: 600;
@@ -386,13 +406,13 @@ export default function PageV2() {
           margin: 0.2rem 0 0.1rem;
         }
         .v2-event-sub {
-          font-size: 0.68rem;
+          font-size: 0.72rem;
           color: #7a7a7a;
           letter-spacing: 0.06em;
           margin-bottom: 0.15rem;
         }
         .v2-event-time {
-          font-size: 0.62rem;
+          font-size: 0.7rem;
           letter-spacing: 0.14em;
           text-transform: uppercase;
           color: #5b6b47;
@@ -407,8 +427,8 @@ export default function PageV2() {
           border-radius: 0.3rem;
           padding: 0.5rem 1.5rem;
           font-family: var(--font-cinzel), serif;
-          font-size: 0.56rem;
-          letter-spacing: 0.18em;
+          font-size: 0.64rem;
+          letter-spacing: 0.14em;
           text-transform: uppercase;
           text-decoration: none;
           font-weight: 500;
@@ -495,8 +515,8 @@ export default function PageV2() {
 
         /* ══ COUNTDOWN ══════════════════════════════ */
         .v2-cd-label {
-          font-size: 0.55rem;
-          letter-spacing: 0.2em;
+          font-size: 0.65rem;
+          letter-spacing: 0.16em;
           text-transform: uppercase;
           color: #7a7a7a;
           text-align: center;
@@ -534,15 +554,15 @@ export default function PageV2() {
           letter-spacing: -0.02em;
         }
         .cd-label {
-          font-size: 0.5rem;
-          letter-spacing: 0.18em;
+          font-size: 0.62rem;
+          letter-spacing: 0.14em;
           text-transform: uppercase;
           color: #5b6b47;
           margin-top: 0.35rem;
           font-weight: 500;
         }
         .v2-cd-sub {
-          font-size: 0.6rem;
+          font-size: 0.68rem;
           letter-spacing: 0.16em;
           text-transform: uppercase;
           color: #7a7a7a;
@@ -620,7 +640,7 @@ export default function PageV2() {
           border-top: 1px solid rgba(91,107,71,0.12);
         }
         .v2-footer a {
-          font-size: 0.52rem;
+          font-size: 0.62rem;
           letter-spacing: 0.18em;
           text-transform: uppercase;
           color: #aaa;
@@ -644,18 +664,94 @@ export default function PageV2() {
         .v2-fade-2 { animation-delay: 0.2s; }
         .v2-fade-3 { animation-delay: 0.3s; }
 
+        /* WeatherSection usa .reveal de globals — forzar visible en v2 */
+        .v2-root .reveal,
+        .v2-root .reveal-left,
+        .v2-root .reveal-right { opacity: 1 !important; transform: none !important; }
+
         /* Scrollbar */
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: #f7f5f0; }
         ::-webkit-scrollbar-thumb { background: rgba(91,107,71,0.3); border-radius: 4px; }
       `}</style>
 
-      <div className="v2-root">
+      {/* ══ ENVELOPE INTRO ══════════════════════════════ */}
+      {showIntro && (
+        <div className={`env-screen${isExiting ? " env-screen--exit" : ""}`}>
+          <div aria-hidden="true" className="env-bg">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/carlayangel/fondo-verde.svg" alt="" loading="eager" decoding="async" />
+            <div className="env-bg-veil" />
+          </div>
+          <div className="env-content">
+            <div className="env-title">
+              <h1 className="env-names">
+                Carla <span className="env-amp">&amp;</span> Ángel
+              </h1>
+            </div>
+            <div className="env-img-wrap" style={{ position: "relative", display: "flex", justifyContent: "center" }}>
+              {/* Resplandor suave — igual que v1 */}
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  inset: "-1rem",
+                  backgroundColor: "rgba(210, 160, 160, 0.3)",
+                  borderRadius: "2rem",
+                  filter: "blur(35px)",
+                  transform: "scale(1.15)",
+                  pointerEvents: "none",
+                  zIndex: 0,
+                }}
+              />
+              {/* Sombra base inferior */}
+              <div
+                style={{
+                  position: "absolute",
+                  left: "3rem",
+                  right: "3rem",
+                  bottom: "-0.5rem",
+                  height: "2.5rem",
+                  backgroundColor: "rgba(0,0,0,0.3)",
+                  filter: "blur(20px)",
+                  borderRadius: "50%",
+                  zIndex: 0,
+                  pointerEvents: "none",
+                }}
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/carlayangel/sobre%20(1).png"
+                alt="Sobre de invitación"
+                className={`env-img${isExiting ? " env-img--exit" : ""}`}
+                onClick={handleOpen}
+                onKeyDown={(e) => e.key === "Enter" && handleOpen()}
+                role="button"
+                tabIndex={0}
+                style={{
+                  filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.45))",
+                  position: "relative",
+                  zIndex: 10,
+                  cursor: "pointer",
+                  transition: "transform 0.3s ease",
+                }}
+              />
+            </div>
+            <div className="env-hint">
+              <p className="env-instruction">
+                Toca el sobre para<br />abrir tu invitación
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {!showIntro && <div className="v2-root">
+        <GSAPAnimations />
         <div className="v2-top-band" />
 
         {/* ══ 1. HEADER: SOBRE + MÚSICA ══════════════════ */}
         <header className="v2-header v2-fade v2-fade-1">
-          {/* Sobre real del proyecto */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/carlayangel/sobre.png"
@@ -667,34 +763,55 @@ export default function PageV2() {
               marginBottom: "1rem",
             }}
           />
-
-          {/* Reproductor */}
           <MusicPlayer />
         </header>
 
-        {/* ══ 2. TARJETA PRINCIPAL ════════════════════════ */}
-        <section className="v2-section v2-fade v2-fade-2">
-          <div className="v2-main-card">
-            {/* Foto hero de la pareja */}
+        {/* ══ 2. HERO: NOMBRES + FOTO ARCO ═══════════════ */}
+        <section className="v2-section v2-fade v2-fade-2" style={{ paddingBottom: "0.5rem" }}>
+          {/* Nombres arriba */}
+          <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+            <p className="v2-pre">Tenemos el honor de invitarte a la boda de</p>
+            <h1 className="v2-names">
+              Carla <em>&</em> Ángel
+            </h1>
+            <div className="v2-divider">
+              <span className="v2-diamond">✦</span>
+            </div>
+            <p className="v2-date-place">
+              Viernes · 27 de Noviembre · 2026<br />
+              Chiapas, México
+            </p>
+          </div>
+
+          {/* Foto arco sin fondo blanco */}
+          <div style={{ position: "relative", width: "100%", maxWidth: "340px", padding: "0 1rem" }}>
+            <div
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                inset: "-0.5rem 0.5rem",
+                border: "1px solid rgba(91,107,71,0.3)",
+                borderRadius: "10rem 10rem 1rem 1rem",
+                pointerEvents: "none",
+                zIndex: 0,
+              }}
+            />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/carlayangel/foto-luces-abrazo.jpeg"
+              src="/carlayangel/foto-calle-bw-noche-caminando.jpeg"
               alt="Carla y Ángel"
-              className="v2-card-photo"
+              style={{
+                width: "100%",
+                height: "auto",
+                aspectRatio: "4/5",
+                objectFit: "cover",
+                borderRadius: "10rem 10rem 1rem 1rem",
+                boxShadow: "0 20px 50px rgba(0,0,0,0.25)",
+                display: "block",
+                position: "relative",
+                zIndex: 1,
+              }}
             />
-            <div className="v2-card-body">
-              <p className="v2-pre">Tenemos el honor de invitarte a la boda de</p>
-              <h1 className="v2-names">
-                Carla <em>&</em> Ángel
-              </h1>
-              <div className="v2-divider">
-                <span className="v2-diamond">✦</span>
-              </div>
-              <p className="v2-date-place">
-                Viernes · 27 de Noviembre · 2026<br />
-                Chiapas, México
-              </p>
-            </div>
           </div>
         </section>
 
@@ -820,7 +937,10 @@ export default function PageV2() {
           </div>
         </section>
 
-        {/* ══ 5. GALERÍA DE FOTOS ════════════════════════ */}
+        {/* ══ 5. CLIMA ═══════════════════════════════════ */}
+        <WeatherSection />
+
+        {/* ══ 6. GALERÍA DE FOTOS ════════════════════════ */}
         <section className="v2-section" style={{ paddingBottom: "1rem" }}>
           <div className="v2-gallery">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -857,20 +977,6 @@ export default function PageV2() {
                 Caballeros con traje, damas con vestido largo.
                 <em className="v2-dress-note">Color blanco reservado para la novia.</em>
               </p>
-              <div className="v2-swatches">
-                {[
-                  { bg: "#5b6b47", name: "Verde oliva" },
-                  { bg: "#c8b89a", name: "Beige" },
-                  { bg: "#2a2a2a", name: "Negro" },
-                  { bg: "#b8a9a0", name: "Malva" },
-                  { bg: "#7a6a5a", name: "Café" },
-                ].map(({ bg, name }) => (
-                  <div key={name} className="v2-swatch-item">
-                    <span className="v2-swatch" style={{ background: bg }} aria-label={name} />
-                    <span className="v2-swatch-name">{name}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </section>
@@ -902,6 +1008,29 @@ export default function PageV2() {
                 Si desean hacernos un obsequio,<br />
                 lo recibiremos con mucho cariño.
               </p>
+              <a
+                href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51455376"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-block",
+                  marginTop: "1.25rem",
+                  border: "1.5px solid rgba(255,255,255,0.6)",
+                  color: "#fff",
+                  background: "transparent",
+                  borderRadius: "0.3rem",
+                  padding: "0.6rem 1.75rem",
+                  fontFamily: "var(--font-cinzel), serif",
+                  fontSize: "0.56rem",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                  fontWeight: 500,
+                  transition: "background 0.2s, color 0.2s",
+                }}
+              >
+                Mesa de regalos Liverpool
+              </a>
             </div>
           </div>
         </section>
@@ -965,7 +1094,7 @@ export default function PageV2() {
         </footer>
 
         <div className="v2-bottom-band" />
-      </div>
+      </div>}
     </>
   );
 }

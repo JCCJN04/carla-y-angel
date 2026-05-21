@@ -73,7 +73,7 @@ export default function EnvelopeIntro({ onOpen }: Props) {
 
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/carlayangel/sobre.png"
+            src="/carlayangel/sobre%20(1).png"
             alt="Sobre de invitación"
             className={`env-img${isExiting ? ' env-img--exit' : ''}`}
             onClick={handleClick}
