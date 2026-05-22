@@ -34,9 +34,19 @@ const cinzel = Cinzel({
 
 export const metadata: Metadata = {
   title: "Boda Carla y Angel",
+  manifest: "/carlayangel/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Carla & Ángel",
+  },
+  icons: {
+    apple: "/carlayangel/icon-192.png",
+  },
 };
 
 export const viewport: Viewport = {
+  themeColor: "#1A1410",
   width: "device-width",
   initialScale: 1,
 };
