@@ -40,8 +40,8 @@ export default function V2Layout({ children }: { children: React.ReactNode }) {
         }}
       />
 
-      {/* Contenido — flujo normal de documento para scroll nativo en todos los browsers */}
-      <div style={{ position: "relative" }}>
+      {/* Contenido — z-index:7 garantiza que quede sobre fondo-verde (z:5) */}
+      <div style={{ position: "relative", zIndex: 7 }}>
         {children}
       </div>
     </>
