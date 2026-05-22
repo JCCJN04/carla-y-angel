@@ -41,7 +41,7 @@ export default function V2Layout({ children }: { children: React.ReactNode }) {
       />
 
       {/* Contenido — z-index:7 garantiza que quede sobre fondo-verde (z:5) */}
-      <div style={{ position: "relative", zIndex: 7 }}>
+      <div style={{ position: "relative", zIndex: 7, minHeight: "100dvh" }}>
         {children}
       </div>
     </>
