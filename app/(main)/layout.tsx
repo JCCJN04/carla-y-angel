@@ -11,7 +11,7 @@ export default function V2Layout({ children }: { children: React.ReactNode }) {
       {/* Fondo verde — position fixed para cubrir viewport sin afectar el scroll */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/carlayangel/fondo-verde.svg"
+        src="/carlayangel/fondo.svg"
         alt=""
         aria-hidden="true"
         loading="eager"
@@ -40,7 +40,7 @@ export default function V2Layout({ children }: { children: React.ReactNode }) {
         }}
       />
 
-      {/* Contenido — z-index:7 garantiza que quede sobre fondo-verde (z:5) */}
+      {/* Contenido — z-index:7 garantiza que quede sobre fondo (z:5) */}
       <div style={{ position: "relative", zIndex: 7, minHeight: "100dvh" }}>
         {children}
       </div>

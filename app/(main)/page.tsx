@@ -142,7 +142,7 @@ export default function PageV2() {
         >
           <div aria-hidden="true" className="env-bg" style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/carlayangel/fondo-verde.svg" alt="" loading="eager" decoding="async" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            <img src="/carlayangel/fondo.svg" alt="" loading="eager" decoding="async" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
             <div className="env-bg-veil" style={{ position: "absolute", inset: 0, background: "rgba(250, 244, 235, .52)" }} />
           </div>
           <div className="env-content" style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5rem", padding: "2rem 1.5rem", textAlign: "center" }}>
