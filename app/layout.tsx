@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Pinyon_Script, Cormorant_Garamond, Montserrat, Cinzel } from "next/font/google";
 import BackgroundImage from "@/components/BackgroundImage";
 import "./globals.css";
@@ -36,6 +36,11 @@ export const metadata: Metadata = {
   title: "Boda Carla y Angel",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -47,7 +52,7 @@ export default function RootLayout({
         className={`${pinyonScript.variable} ${cormorant.variable} ${montserrat.variable} ${cinzel.variable}`}
       >
         <BackgroundImage />
-        <div style={{ position: 'relative', zIndex: 1 }}>
+        <div style={{ position: 'relative', zIndex: 9999 }}>
           {children}
         </div>
       </body>
