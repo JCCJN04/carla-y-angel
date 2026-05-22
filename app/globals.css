@@ -44,6 +44,11 @@ body {
   max-width: 100vw;
 }
 
+html.intro-open {
+  overflow: hidden;
+  touch-action: none;
+}
+
 /* Grain global â€” paper feel */
 body::after {
   content: '';
@@ -1774,7 +1779,7 @@ footer {
 
 /* Title block */
 .env-title {
-  animation: env-fade-up 1.2s var(--ease-smooth) .35s both;
+  animation: env-fade-up 1.2s var(--ease-smooth) .05s both;
 }
 .env-pre {
   font-family: var(--font-cinzel), serif;
@@ -1829,7 +1834,7 @@ footer {
 
 /* Hint */
 .env-hint {
-  animation: env-fade-up .9s var(--ease-smooth) 1.9s both;
+  animation: env-fade-up .9s var(--ease-smooth) .4s both;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -118,11 +118,11 @@ export default function PageV2() {
 
   useEffect(() => {
     if (showIntro) {
-      document.body.style.overflow = "hidden";
+      document.documentElement.classList.add("intro-open");
     } else {
-      document.body.style.overflow = "";
+      document.documentElement.classList.remove("intro-open");
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => { document.documentElement.classList.remove("intro-open"); };
   }, [showIntro]);
 
   const handleOpen = () => {
