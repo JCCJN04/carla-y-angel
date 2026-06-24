@@ -305,7 +305,11 @@ export default function PageV2() {
                 style={{
                   position: "relative",
                   backgroundColor: "#ebe6dc",
-                  padding: "3rem 1.5rem",
+                  backgroundImage: "url('/carlayangel/itinerario.png')",
+                  backgroundBlendMode: "multiply",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  backgroundSize: "85% auto",
                   boxShadow: "0 15px 50px rgba(0,0,0,0.15)",
                   overflow: "hidden",
                   borderRadius: "40% 60% 50% 50% / 45% 50% 50% 55%",
@@ -314,16 +318,17 @@ export default function PageV2() {
                   alignItems: "center",
                 }}
               >
+                {/* Hidden img — solo para que el div tome las dimensiones naturales de la imagen */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/carlayangel/itinerario.png"
                   alt="Itinerario del día"
                   style={{
-                    width: "100%",
+                    width: "85%",
                     height: "auto",
                     display: "block",
-                    mixBlendMode: "multiply",
-                    filter: "grayscale(100%) contrast(150%) brightness(110%)",
+                    visibility: "hidden",
+                    margin: "3rem auto",
                   }}
                   loading="lazy"
                 />
