@@ -308,9 +308,8 @@ export default function PageV2() {
                     position: "relative",
                     backgroundColor: "#ebe6dc",
                     padding: "3rem 1.5rem",
-                    /* clip-path en lugar de overflow:hidden — evita el bug de Safari iOS
-                       donde mix-blend-mode se compone contra el fondo de la página
-                       en vez del backgroundColor del padre */
+                    boxSizing: "border-box",
+                    width: "100%",
                     clipPath: "ellipse(49% 50% at 50% 50%)",
                     WebkitClipPath: "ellipse(49% 50% at 50% 50%)",
                     display: "flex",
@@ -324,6 +323,7 @@ export default function PageV2() {
                     alt="Itinerario del día"
                     style={{
                       width: "100%",
+                      maxWidth: "100%",
                       height: "auto",
                       display: "block",
                       mixBlendMode: "multiply",
