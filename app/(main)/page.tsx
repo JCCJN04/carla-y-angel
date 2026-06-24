@@ -301,37 +301,36 @@ export default function PageV2() {
               <p className="v2-section-label">Programa del día</p>
             </div>
             <div style={{ position: "relative", maxWidth: "36rem", margin: "1.5rem auto 0", padding: "1rem" }}>
-              <div
-                style={{
-                  position: "relative",
-                  backgroundColor: "#ebe6dc",
-                  backgroundImage: "url('/carlayangel/itinerario.png')",
-                  backgroundBlendMode: "multiply",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
-                  backgroundSize: "85% auto",
-                  boxShadow: "0 15px 50px rgba(0,0,0,0.15)",
-                  overflow: "hidden",
-                  borderRadius: "40% 60% 50% 50% / 45% 50% 50% 55%",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                {/* Hidden img — solo para que el div tome las dimensiones naturales de la imagen */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/carlayangel/itinerario.png"
-                  alt="Itinerario del día"
+              {/* drop-shadow en wrapper porque clip-path en hijo recorta box-shadow */}
+              <div style={{ filter: "drop-shadow(0 15px 50px rgba(0,0,0,0.15))" }}>
+                <div
                   style={{
-                    width: "85%",
-                    height: "auto",
-                    display: "block",
-                    visibility: "hidden",
-                    margin: "3rem auto",
+                    position: "relative",
+                    backgroundColor: "#ebe6dc",
+                    padding: "3rem 1.5rem",
+                    /* clip-path en lugar de overflow:hidden — evita el bug de Safari iOS
+                       donde mix-blend-mode se compone contra el fondo de la página
+                       en vez del backgroundColor del padre */
+                    clipPath: "ellipse(49% 50% at 50% 50%)",
+                    WebkitClipPath: "ellipse(49% 50% at 50% 50%)",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                  loading="lazy"
-                />
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/carlayangel/itinerario.png"
+                    alt="Itinerario del día"
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      display: "block",
+                      mixBlendMode: "multiply",
+                    }}
+                    loading="lazy"
+                  />
+                </div>
               </div>
               {/* Sombra decorativa desfasada */}
               <div
