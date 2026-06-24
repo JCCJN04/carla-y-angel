@@ -305,7 +305,7 @@ export default function PageV2() {
                 style={{
                   position: "relative",
                   backgroundColor: "#ebe6dc",
-                  padding: "4rem 0.5rem",
+                  padding: "3rem 1.5rem",
                   boxShadow: "0 15px 50px rgba(0,0,0,0.15)",
                   overflow: "hidden",
                   borderRadius: "40% 60% 50% 50% / 45% 50% 50% 55%",
@@ -322,7 +322,6 @@ export default function PageV2() {
                     width: "100%",
                     height: "auto",
                     display: "block",
-                    transform: "scale(1.15)",
                     mixBlendMode: "multiply",
                     filter: "grayscale(100%) contrast(150%) brightness(110%)",
                   }}
