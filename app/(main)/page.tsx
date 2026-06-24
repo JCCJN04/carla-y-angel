@@ -300,21 +300,16 @@ export default function PageV2() {
             <div className="v2-card-pad" style={{ textAlign: "center", paddingBottom: 0 }}>
               <p className="v2-section-label">Programa del día</p>
             </div>
-            <div style={{ position: "relative", maxWidth: "36rem", margin: "1.5rem auto 0", padding: "1rem" }}>
-              {/* drop-shadow en wrapper porque clip-path en hijo recorta box-shadow */}
+            <div style={{ position: "relative", maxWidth: "320px", margin: "1.5rem auto 0" }}>
+              {/* drop-shadow en wrapper — clip-path recorta box-shadow si va en el mismo elemento */}
               <div style={{ filter: "drop-shadow(0 15px 50px rgba(0,0,0,0.15))" }}>
                 <div
                   style={{
                     position: "relative",
                     backgroundColor: "#ebe6dc",
-                    padding: "3rem 1.5rem",
-                    boxSizing: "border-box",
-                    width: "100%",
+                    /* Sin padding: imagen llena el oval directamente */
                     clipPath: "ellipse(49% 50% at 50% 50%)",
                     WebkitClipPath: "ellipse(49% 50% at 50% 50%)",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
                   }}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -323,7 +318,6 @@ export default function PageV2() {
                     alt="Itinerario del día"
                     style={{
                       width: "100%",
-                      maxWidth: "100%",
                       height: "auto",
                       display: "block",
                       mixBlendMode: "multiply",
@@ -332,19 +326,6 @@ export default function PageV2() {
                   />
                 </div>
               </div>
-              {/* Sombra decorativa desfasada */}
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "0.5rem",
-                  right: "0.5rem",
-                  width: "calc(100% - 3rem)",
-                  height: "calc(100% - 3rem)",
-                  backgroundColor: "rgba(212, 197, 185, 0.4)",
-                  borderRadius: "40% 60% 50% 50% / 45% 50% 50% 55%",
-                  zIndex: -1,
-                }}
-              />
             </div>
           </div>
         </section>
