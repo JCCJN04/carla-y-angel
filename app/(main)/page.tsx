@@ -240,8 +240,7 @@ export default function PageV2() {
               <span className="v2-diamond">✦</span>
             </div>
             <p className="v2-date-place">
-              Viernes · 27 de Noviembre · 2026<br />
-              Chiapas, México
+              Viernes · 27 de Noviembre · 2026
             </p>
           </div>
 
@@ -345,22 +344,22 @@ export default function PageV2() {
                 />
                 <h2 className="v2-event-name">Iglesia San José Mirador</h2>
                 <p className="v2-event-sub">Chiapas, México</p>
-                <p className="v2-event-time">Hora: 16:00 hrs</p>
+                <p className="v2-event-time">Hora: 4:00 pm</p>
                 <a
                   href="https://maps.google.com/?q=Iglesia+San+Jose+Mirador+Chiapas"
                   target="_blank" rel="noopener noreferrer"
                   className="v2-loc-btn"
                   aria-label="Ver Iglesia San José Mirador en Google Maps"
                 >
-                  Ubicación
+                  Ver Ubicación
                 </a>
               </div>
 
               <div className="v2-event-divider" />
 
-              {/* Recepción */}
+              {/* Ceremonia Civil */}
               <div className="v2-event-block">
-                <p className="v2-section-label">Ceremonia Civil & Recepción</p>
+                <p className="v2-section-label">Ceremonia Civil</p>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/carlayangel/salon.png"
@@ -369,35 +368,18 @@ export default function PageV2() {
                 />
                 <h2 className="v2-event-name">Salón Glück</h2>
                 <p className="v2-event-sub">Chiapas, México</p>
-                <p className="v2-event-time">Hora: 18:00 hrs</p>
+                <p className="v2-event-time">Hora: 7:20 pm</p>
                 <a
                   href="https://maps.google.com/?q=Salon+Gluck+Chiapas"
                   target="_blank" rel="noopener noreferrer"
                   className="v2-loc-btn"
                   aria-label="Ver Salón Glück en Google Maps"
                 >
-                  Ubicación
+                  Ver Ubicación
                 </a>
               </div>
+
             </div>
-          </div>
-        </section>
-
-        {/* ══ 5. CLIMA ═══════════════════════════════════ */}
-        <WeatherSection />
-
-        {/* ══ 6. GALERÍA DE FOTOS ════════════════════════ */}
-        <section className="v2-section" style={{ paddingBottom: "1rem" }}>
-          <div className="v2-gallery">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/carlayangel/foto-calle-bw-beso-inclinado.jpeg"
-              alt="Carla y Ángel" className="v2-gallery-img v2-gallery-img--tall" loading="lazy"/>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/carlayangel/foto-puente-estrella-beso.jpeg"
-              alt="Carla y Ángel" className="v2-gallery-img" loading="lazy"/>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/carlayangel/foto-calle-bw-periodico.jpeg"
-              alt="Carla y Ángel" className="v2-gallery-img" loading="lazy"/>
           </div>
         </section>
 
@@ -421,7 +403,7 @@ export default function PageV2() {
               <div className="v2-dress-subtitle">Formal</div>
               <p className="v2-dress-body">
                 Caballeros con traje, damas con vestido largo.
-                <em className="v2-dress-note">Color blanco reservado para la novia.</em>
+                <em className="v2-dress-note">Color blanco reservado para la novia. También reservamos el color del vestido de las damas de honor.</em>
               </p>
             </div>
           </div>
@@ -465,9 +447,9 @@ export default function PageV2() {
                 <img
                   src="/carlayangel/liverpool-logo.png"
                   alt="Liverpool"
-                  style={{ width: 130, height: "auto", objectFit: "contain", display: "block", filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.3))", transition: "opacity 0.2s" }}
+                  style={{ width: 90, height: "auto", objectFit: "contain", display: "block", filter: "brightness(0) invert(1)", transition: "opacity 0.2s" }}
                 />
-                <span className="v2-liverpool-caption" style={{ color: "rgba(255,255,255,0.75)" }}>Mesa de regalos</span>
+                <span className="v2-liverpool-caption">Ver mesa de regalos</span>
               </a>
             </div>
           </div>
@@ -522,6 +504,36 @@ export default function PageV2() {
             <line x1="46" y1="6" x2="80" y2="6" stroke="rgba(74,74,56,0.3)" strokeWidth="1"/>
           </svg>
         </div>
+
+        {/* ══ GALERÍA DE FOTOS (PAREJA) ══════════════════ */}
+        <section className="v2-section" style={{ paddingBottom: "1rem" }}>
+          <div className="v2-gallery">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/carlayangel/foto-calle-bw-beso-inclinado.jpeg"
+              alt="Carla y Ángel" className="v2-gallery-img v2-gallery-img--tall" loading="lazy"/>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/carlayangel/foto-puente-estrella-beso.jpeg"
+              alt="Carla y Ángel" className="v2-gallery-img" loading="lazy"/>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/carlayangel/foto-calle-bw-periodico.jpeg"
+              alt="Carla y Ángel" className="v2-gallery-img" loading="lazy"/>
+          </div>
+        </section>
+
+        {/* ══ CLIMA ══════════════════════════════════════ */}
+        <WeatherSection />
+
+        {/* ══ UBICACIÓN ══════════════════════════════════ */}
+        <section className="v2-section">
+          <div className="v2-card">
+            <div className="v2-card-pad" style={{ textAlign: "center" }}>
+              <p className="v2-section-label">Ubicación</p>
+              <p className="v2-date-place" style={{ marginTop: "0.5rem" }}>
+                Tuxtla Gutiérrez, Chiapas
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* ══ FOOTER ══════════════════════════════════════ */}
         <footer className="v2-footer">
