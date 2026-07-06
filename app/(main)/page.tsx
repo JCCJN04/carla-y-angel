@@ -461,12 +461,6 @@ export default function PageV2() {
             <div className="v2-card-pad">
               <p className="v2-section-label">Confirmación de asistencia</p>
               <h2 className="v2-section-title">¿Nos acompañas?</h2>
-              <p className="v2-rsvp-note">
-                Solo necesitamos saber si estarás con nosotros.<br />
-                Confirma antes del{" "}
-                <strong>1 de noviembre de 2026</strong> — nos ayuda<br />
-                a preparar cada detalle con cariño.
-              </p>
               {/* Tally embed */}
               <iframe
                 data-tally-src="https://tally.so/embed/1ADYGl?hideTitle=1&transparentBackground=1&dynamicHeight=1"
