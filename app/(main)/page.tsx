@@ -403,9 +403,10 @@ export default function PageV2() {
             alt="Código de vestimenta - Formal"
             style={{
               width: "100%",
+              maxWidth: "420px",
               height: "auto",
               display: "block",
-              borderRadius: "1rem",
+              borderRadius: "1.25rem",
             }}
             loading="lazy"
           />
