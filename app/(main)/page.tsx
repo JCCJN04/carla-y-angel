@@ -363,17 +363,17 @@ export default function PageV2() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/carlayangel/salon.png"
-                  alt="Salón Glück"
+                  alt="Salón Gluck"
                   className="v2-venue-photo"
                 />
-                <h2 className="v2-event-name">Salón Glück</h2>
-                <p className="v2-event-sub">Chiapas, México</p>
-                <p className="v2-event-time">Hora: 7:20 pm</p>
+                <h2 className="v2-event-name">Salón Gluck</h2>
+                <p className="v2-event-sub">Tuxtla Gutiérrez, Chiapas</p>
+                <p className="v2-event-time">Hora: 7:00 pm</p>
                 <a
                   href="https://maps.google.com/?q=Salon+Gluck+Chiapas"
                   target="_blank" rel="noopener noreferrer"
                   className="v2-loc-btn"
-                  aria-label="Ver Salón Glück en Google Maps"
+                  aria-label="Ver Salón Gluck en Google Maps"
                 >
                   Ver Ubicación
                 </a>
@@ -397,16 +397,18 @@ export default function PageV2() {
 
         {/* ══ 7. DRESS CODE ══════════════════════════════ */}
         <section className="v2-section">
-          <div className="v2-card">
-            <div className="v2-card-pad" style={{ textAlign: "center" }}>
-              <p className="v2-section-label">Código de vestimenta</p>
-              <div className="v2-dress-subtitle">Formal</div>
-              <p className="v2-dress-body">
-                Caballeros con traje, damas con vestido largo.
-                <em className="v2-dress-note">Color blanco reservado para la novia. También reservamos el color del vestido de las damas de honor.</em>
-              </p>
-            </div>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/carlayangel/codigo-vestimenta.jpeg"
+            alt="Código de vestimenta - Formal"
+            style={{
+              width: "100%",
+              height: "auto",
+              display: "block",
+              borderRadius: "1rem",
+            }}
+            loading="lazy"
+          />
         </section>
 
         {/* ══ 8. REGALOS ═════════════════════════════════ */}
