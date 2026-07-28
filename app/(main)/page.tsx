@@ -228,23 +228,64 @@ export default function PageV2() {
           <MusicPlayer />
         </header>
 
-        {/* ══ 2. HERO: NOMBRES + FOTO ARCO ═══════════════ */}
+        {/* ══ 2. PADRES ══════════════════════════════════ */}
         <section className="v2-section v2-fade v2-fade-2" style={{ paddingBottom: "0.5rem" }}>
-          {/* Nombres arriba */}
+          <div className="v2-card">
+            <div className="v2-card-pad" style={{ textAlign: "center" }}>
+              <p className="v2-section-label">Junto a nuestros padres</p>
+              <div style={{ marginTop: "1.5rem", lineHeight: 1.85 }}>
+                <p style={{ fontFamily: "var(--font-cormorant), serif", fontSize: "1.05rem", color: "#3a3028", margin: 0, fontStyle: "italic" }}>
+                  Sra. Gabriela Alejandra González Macal
+                </p>
+                <p style={{ fontFamily: "var(--font-cormorant), serif", fontSize: "1.05rem", color: "#3a3028", margin: 0, fontStyle: "italic" }}>
+                  Sr. Carlos Hugo Gómez Hernández
+                </p>
+              </div>
+              <div style={{ margin: "1rem auto", display: "flex", alignItems: "center", gap: "0.5rem", justifyContent: "center" }}>
+                <div style={{ width: 32, height: 1, background: "rgba(74,74,56,0.2)" }} />
+                <span style={{ color: "#8B6248", fontSize: "0.7rem" }}>✦</span>
+                <div style={{ width: 32, height: 1, background: "rgba(74,74,56,0.2)" }} />
+              </div>
+              <div style={{ lineHeight: 1.85 }}>
+                <p style={{ fontFamily: "var(--font-cormorant), serif", fontSize: "1.05rem", color: "#3a3028", margin: 0, fontStyle: "italic" }}>
+                  Sra. Rosa Estudillo López
+                </p>
+                <p style={{ fontFamily: "var(--font-cormorant), serif", fontSize: "1.05rem", color: "#3a3028", margin: 0, fontStyle: "italic" }}>
+                  Sr. Alzheimer Alegría Aguilar <span style={{ fontSize: "0.85rem" }}>†</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ══ 3. HERO: NOMBRES + FOTO ARCO ═══════════════ */}
+        <section className="v2-section v2-fade v2-fade-3" style={{ paddingBottom: "0.5rem", paddingTop: "2rem" }}>
           <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
-            <p className="v2-pre">Tenemos el honor de invitarte a la boda de</p>
             <h1 className="v2-names">
               Carla <em>&</em> Ángel
             </h1>
+            <p style={{
+              marginTop: "1rem",
+              maxWidth: "280px",
+              margin: "1rem auto 0",
+              fontFamily: "var(--font-cormorant), serif",
+              fontStyle: "italic",
+              fontSize: "clamp(1rem, 3vw, 1.15rem)",
+              color: "#5C5040",
+              lineHeight: 1.6,
+              textAlign: "center",
+            }}>
+              Decidimos unir nuestras vidas en matrimonio y nos encantará que nos acompañen a la celebración
+            </p>
             <div className="v2-divider">
               <span className="v2-diamond">✦</span>
             </div>
             <p className="v2-date-place">
-              Viernes · 27 de Noviembre · 2026
+              27 de Noviembre 2026
             </p>
           </div>
 
-          {/* Foto arco sin fondo blanco */}
+          {/* Foto arco */}
           <div style={{ position: "relative", width: "100%", maxWidth: "340px", padding: "0 1rem" }}>
             <div
               aria-hidden="true"
@@ -276,60 +317,7 @@ export default function PageV2() {
           </div>
         </section>
 
-        {/* ══ 3. MONOGRAMA ═══════════════════════════════ */}
-        <div className="v2-monogram-wrap v2-fade v2-fade-3">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/carlayangel/logo.jpeg"
-            alt="Logo Carla & Ángel"
-            style={{
-              width: 110,
-              height: 110,
-              objectFit: "contain",
-              borderRadius: "50%",
-              boxShadow: "0 8px 28px rgba(74,74,56,0.25)",
-              display: "block",
-            }}
-          />
-        </div>
-
-        {/* ══ 4. ITINERARIO ══════════════════════════════ */}
-        <section className="v2-section">
-          <div className="v2-card" style={{ overflow: "visible", background: "transparent", boxShadow: "none" }}>
-            <div className="v2-card-pad" style={{ textAlign: "center", paddingBottom: 0 }}>
-              <p className="v2-section-label">Programa del día</p>
-            </div>
-            <div style={{ position: "relative", maxWidth: "320px", margin: "1.5rem auto 0" }}>
-              {/* drop-shadow en wrapper — clip-path recorta box-shadow si va en el mismo elemento */}
-              <div style={{ filter: "drop-shadow(0 15px 50px rgba(0,0,0,0.15))" }}>
-                <div
-                  style={{
-                    position: "relative",
-                    backgroundColor: "#ebe6dc",
-                    /* Sin padding: imagen llena el oval directamente */
-                    clipPath: "ellipse(49% 50% at 50% 50%)",
-                    WebkitClipPath: "ellipse(49% 50% at 50% 50%)",
-                  }}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/carlayangel/itinerario.png"
-                    alt="Itinerario del día"
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      display: "block",
-                      mixBlendMode: "multiply",
-                    }}
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ══ 5. DETALLES DEL EVENTO ═════════════════════ */}
+        {/* ══ 4. DETALLES DEL EVENTO ═════════════════════ */}
         <section className="v2-section">
           <div className="v2-card">
             <div className="v2-card-pad">
@@ -343,7 +331,7 @@ export default function PageV2() {
                   className="v2-venue-photo"
                 />
                 <h2 className="v2-event-name">Iglesia San José Mirador</h2>
-                <p className="v2-event-sub">Chiapas, México</p>
+                <p className="v2-event-sub">Tuxtla Gutiérrez, Chiapas</p>
                 <p className="v2-event-time">Hora: 4:00 pm</p>
                 <a
                   href="https://maps.google.com/?q=Iglesia+San+Jose+Mirador+Chiapas"
@@ -378,24 +366,45 @@ export default function PageV2() {
                   Ver Ubicación
                 </a>
               </div>
-
             </div>
           </div>
         </section>
 
-        {/* ══ 6. CUENTA REGRESIVA ════════════════════════ */}
-        <section className="v2-section" style={{ paddingTop: "1rem" }}>
-          <div className="v2-card">
-            <div className="v2-card-pad" style={{ textAlign: "center" }}>
-              <p className="v2-section-label">Cuenta regresiva</p>
-              <div className="v2-cd-label" style={{ marginBottom: "0.25rem" }}>Faltan</div>
-              <Countdown />
-              <p className="v2-cd-sub">para nuestro gran día</p>
+        {/* ══ 5. ITINERARIO ══════════════════════════════ */}
+        <section className="v2-section">
+          <div className="v2-card" style={{ overflow: "visible", background: "transparent", boxShadow: "none" }}>
+            <div className="v2-card-pad" style={{ textAlign: "center", paddingBottom: 0 }}>
+              <p className="v2-section-label">Programa del día</p>
+            </div>
+            <div style={{ position: "relative", maxWidth: "320px", margin: "1.5rem auto 0" }}>
+              <div style={{ filter: "drop-shadow(0 15px 50px rgba(0,0,0,0.15))" }}>
+                <div
+                  style={{
+                    position: "relative",
+                    backgroundColor: "#ebe6dc",
+                    clipPath: "ellipse(49% 50% at 50% 50%)",
+                    WebkitClipPath: "ellipse(49% 50% at 50% 50%)",
+                  }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/carlayangel/itinerario.png"
+                    alt="Itinerario del día"
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      display: "block",
+                      mixBlendMode: "multiply",
+                    }}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ══ 7. DRESS CODE ══════════════════════════════ */}
+        {/* ══ 6. DRESS CODE ══════════════════════════════ */}
         <section className="v2-section">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -412,7 +421,7 @@ export default function PageV2() {
           />
         </section>
 
-        {/* ══ 8. REGALOS ═════════════════════════════════ */}
+        {/* ══ 7. REGALOS ═════════════════════════════════ */}
         <section className="v2-section">
           <div className="v2-card v2-card--olive">
             <div className="v2-card-pad" style={{ textAlign: "center" }}>
@@ -439,7 +448,6 @@ export default function PageV2() {
                 Si desean hacernos un obsequio,<br />
                 lo recibiremos con mucho cariño.
               </p>
-              {/* Liverpool logo */}
               <a
                 href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51455376"
                 target="_blank"
@@ -458,13 +466,12 @@ export default function PageV2() {
           </div>
         </section>
 
-        {/* ══ 9. RSVP ════════════════════════════════════ */}
+        {/* ══ 8. RSVP ════════════════════════════════════ */}
         <section className="v2-section">
           <div className="v2-card" style={{ overflow: "visible" }}>
             <div className="v2-card-pad">
               <p className="v2-section-label">Confirmación de asistencia</p>
               <h2 className="v2-section-title">¿Nos acompañas?</h2>
-              {/* Tally embed */}
               <iframe
                 data-tally-src="https://tally.so/embed/1ADYGl?hideTitle=1&transparentBackground=1&dynamicHeight=1"
                 loading="lazy"
@@ -487,22 +494,19 @@ export default function PageV2() {
           </div>
         </section>
 
-        {/* ══ CIERRE ═════════════════════════════════════ */}
-        <div className="v2-closing">
-          <h2 className="v2-closing-script">¡Te esperamos!</h2>
-          <p className="v2-closing-body">
-            Hay días que se recuerdan para siempre.<br />
-            Nos da mucho gusto que este sea<br />uno de los tuyos también.
-          </p>
-          <div className="v2-closing-names">Carla &amp; Ángel</div>
-          <svg width="80" height="12" viewBox="0 0 80 12" fill="none" aria-hidden style={{ marginTop: "0.5rem" }}>
-            <line x1="0" y1="6" x2="34" y2="6" stroke="rgba(74,74,56,0.3)" strokeWidth="1"/>
-            <circle cx="40" cy="6" r="3" fill="rgba(74,74,56,0.45)"/>
-            <line x1="46" y1="6" x2="80" y2="6" stroke="rgba(74,74,56,0.3)" strokeWidth="1"/>
-          </svg>
-        </div>
+        {/* ══ 9. CUENTA REGRESIVA ════════════════════════ */}
+        <section className="v2-section" style={{ paddingTop: "1rem" }}>
+          <div className="v2-card">
+            <div className="v2-card-pad" style={{ textAlign: "center" }}>
+              <p className="v2-section-label">Cuenta regresiva</p>
+              <div className="v2-cd-label" style={{ marginBottom: "0.25rem" }}>Faltan</div>
+              <Countdown />
+              <p className="v2-cd-sub">para nuestro gran día</p>
+            </div>
+          </div>
+        </section>
 
-        {/* ══ GALERÍA DE FOTOS (PAREJA) ══════════════════ */}
+        {/* ══ GALERÍA DE FOTOS ═══════════════════════════ */}
         <section className="v2-section" style={{ paddingBottom: "1rem" }}>
           <div className="v2-gallery">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -520,17 +524,20 @@ export default function PageV2() {
         {/* ══ CLIMA ══════════════════════════════════════ */}
         <WeatherSection />
 
-        {/* ══ UBICACIÓN ══════════════════════════════════ */}
-        <section className="v2-section">
-          <div className="v2-card">
-            <div className="v2-card-pad" style={{ textAlign: "center" }}>
-              <p className="v2-section-label">Ubicación</p>
-              <p className="v2-date-place" style={{ marginTop: "0.5rem" }}>
-                Tuxtla Gutiérrez, Chiapas
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* ══ CIERRE ═════════════════════════════════════ */}
+        <div className="v2-closing">
+          <h2 className="v2-closing-script">¡Te esperamos!</h2>
+          <p className="v2-closing-body">
+            Hay días que se recuerdan para siempre.<br />
+            Nos da mucho gusto que este sea<br />uno de los tuyos también.
+          </p>
+          <div className="v2-closing-names">Carla &amp; Ángel</div>
+          <svg width="80" height="12" viewBox="0 0 80 12" fill="none" aria-hidden style={{ marginTop: "0.5rem" }}>
+            <line x1="0" y1="6" x2="34" y2="6" stroke="rgba(74,74,56,0.3)" strokeWidth="1"/>
+            <circle cx="40" cy="6" r="3" fill="rgba(74,74,56,0.45)"/>
+            <line x1="46" y1="6" x2="80" y2="6" stroke="rgba(74,74,56,0.3)" strokeWidth="1"/>
+          </svg>
+        </div>
 
         {/* ══ FOOTER ══════════════════════════════════════ */}
         <footer className="v2-footer">
