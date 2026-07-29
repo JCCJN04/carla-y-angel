@@ -487,6 +487,28 @@ export default function PageV2() {
             <div className="v2-card-pad">
               <p className="v2-section-label">Confirmación de asistencia</p>
               <h2 className="v2-section-title">¿Nos acompañas?</h2>
+
+              {/* ── No niños ── */}
+              <div style={{
+                margin: "1.25rem 0",
+                padding: "0.85rem 1rem",
+                borderRadius: "0.75rem",
+                background: "rgba(139,98,72,0.08)",
+                border: "1px solid rgba(139,98,72,0.22)",
+                textAlign: "center",
+              }}>
+                <p style={{
+                  margin: 0,
+                  fontFamily: "var(--font-cormorant), serif",
+                  fontSize: "1rem",
+                  color: "#5C5040",
+                  lineHeight: 1.6,
+                }}>
+                  🚫 Por favor, esta celebración es exclusiva para adultos.<br />
+                  <span style={{ fontStyle: "italic" }}>Les pedimos no traer niños. ¡Gracias por su comprensión!</span>
+                </p>
+              </div>
+
               <iframe
                 data-tally-src="https://tally.so/embed/1ADYGl?hideTitle=1&transparentBackground=1&dynamicHeight=1"
                 loading="lazy"
