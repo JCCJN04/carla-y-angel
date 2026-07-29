@@ -55,7 +55,19 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001/carlayangel/salon.png)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/carlayangel)",
       "Bash(curl -s http://localhost:3000/carlayangel)",
-      "Bash(curl -v --max-time 3 http://localhost:3000/carlayangel)"
+      "Bash(curl -v --max-time 3 http://localhost:3000/carlayangel)",
+      "Bash(curl:*)",
+      "Bash(python -c \"import whisper\")",
+      "Bash(whisper:*)",
+      "Bash(wait)",
+      "Bash(ls:*)",
+      "Bash(python recolor_fondo.py)",
+      "Bash(python:*)",
+      "WebFetch(domain:carla-y-angel-qcbv.vercel.app)",
+      "WebFetch(domain:www.invitacionesdigitalesmty.com.mx)",
+      "Bash(grep -E \"\\\\.\\(config|json|html|ts|js\\)$\")",
+      "Bash(grep -v \"^node_modules$\")",
+      "Bash(xargs -I {} basename {})"
     ]
   }
 }

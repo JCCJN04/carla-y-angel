@@ -317,7 +317,41 @@ export default function PageV2() {
           </div>
         </section>
 
-        {/* ══ 4. DETALLES DEL EVENTO ═════════════════════ */}
+        {/* ══ 4. ITINERARIO ══════════════════════════════ */}
+        <section className="v2-section">
+          <div className="v2-card" style={{ overflow: "visible", background: "transparent", boxShadow: "none" }}>
+            <div className="v2-card-pad" style={{ textAlign: "center", paddingBottom: 0 }}>
+              <p className="v2-section-label">Programa del día</p>
+            </div>
+            <div style={{ position: "relative", maxWidth: "320px", margin: "1.5rem auto 0" }}>
+              <div style={{ filter: "drop-shadow(0 15px 50px rgba(0,0,0,0.15))" }}>
+                <div
+                  style={{
+                    position: "relative",
+                    backgroundColor: "#ebe6dc",
+                    clipPath: "ellipse(49% 50% at 50% 50%)",
+                    WebkitClipPath: "ellipse(49% 50% at 50% 50%)",
+                  }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/carlayangel/itinerario.png"
+                    alt="Itinerario del día"
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      display: "block",
+                      mixBlendMode: "multiply",
+                    }}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ══ 5. DETALLES DEL EVENTO ═════════════════════ */}
         <section className="v2-section">
           <div className="v2-card">
             <div className="v2-card-pad">
@@ -370,40 +404,6 @@ export default function PageV2() {
           </div>
         </section>
 
-        {/* ══ 5. ITINERARIO ══════════════════════════════ */}
-        <section className="v2-section">
-          <div className="v2-card" style={{ overflow: "visible", background: "transparent", boxShadow: "none" }}>
-            <div className="v2-card-pad" style={{ textAlign: "center", paddingBottom: 0 }}>
-              <p className="v2-section-label">Programa del día</p>
-            </div>
-            <div style={{ position: "relative", maxWidth: "320px", margin: "1.5rem auto 0" }}>
-              <div style={{ filter: "drop-shadow(0 15px 50px rgba(0,0,0,0.15))" }}>
-                <div
-                  style={{
-                    position: "relative",
-                    backgroundColor: "#ebe6dc",
-                    clipPath: "ellipse(49% 50% at 50% 50%)",
-                    WebkitClipPath: "ellipse(49% 50% at 50% 50%)",
-                  }}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/carlayangel/itinerario.png"
-                    alt="Itinerario del día"
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      display: "block",
-                      mixBlendMode: "multiply",
-                    }}
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* ══ 6. DRESS CODE ══════════════════════════════ */}
         <section className="v2-section">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -449,7 +449,7 @@ export default function PageV2() {
                 lo recibiremos con mucho cariño.
               </p>
               <a
-                href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51455376"
+                href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51862919"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="v2-liverpool-wrap"
@@ -458,6 +458,21 @@ export default function PageV2() {
                 <img
                   src="/carlayangel/liverpool-logo.png"
                   alt="Liverpool"
+                  style={{ width: 90, height: "auto", objectFit: "contain", display: "block", filter: "brightness(0) invert(1)", transition: "opacity 0.2s" }}
+                />
+                <span className="v2-liverpool-caption">Ver mesa de regalos</span>
+              </a>
+              <a
+                href="https://www.amazon.com.mx/wedding/share/CarlayAngel"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="v2-liverpool-wrap"
+                style={{ marginTop: "1rem" }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/carlayangel/amazon-logo.svg"
+                  alt="Amazon"
                   style={{ width: 90, height: "auto", objectFit: "contain", display: "block", filter: "brightness(0) invert(1)", transition: "opacity 0.2s" }}
                 />
                 <span className="v2-liverpool-caption">Ver mesa de regalos</span>
