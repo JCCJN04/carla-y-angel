@@ -504,8 +504,8 @@ export default function PageV2() {
                   color: "#5C5040",
                   lineHeight: 1.6,
                 }}>
-                  🚫 Por favor, esta celebración es exclusiva para adultos.<br />
-                  <span style={{ fontStyle: "italic" }}>Les pedimos no traer niños. ¡Gracias por su comprensión!</span>
+                  Con mucho cariño, les informamos que esta celebración será <strong>sin niños</strong>.<br />
+                  <span style={{ fontStyle: "italic" }}>Agradecemos de corazón su comprensión y esperamos compartir con ustedes una noche muy especial.</span>
                 </p>
               </div>
 
